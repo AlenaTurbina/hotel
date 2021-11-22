@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>List of orders</h1>
+
+<tr th:each="orderBooking : ${orderBookings}">
+    <td th:utext="${orderBooking.id}">id</td>
+    <td th:utext="${orderBooking.date}">id</td>
+    <td th:utext="${orderBooking.dateArrival}">id</td>
+    <td th:utext="${orderBooking.dateDeparture}">id</td>
+    <td th:utext="${orderBooking.quantityPersons}">id</td>
+    <td th:utext="${orderBooking.client.lastName}">id</td>
+    <td th:utext="${orderBooking.room.name}">id</td>
+    <td th:utext="${orderBooking.orderStatus.name}">id</td>
+
+    <td>
+    <td th:each="optional : ${orderBooking.optionals}"
+        th:text="${optional.name}">
+    </td>
+    </td>
+
+    <br>
+</tr>
+<br>
+<a href="createOrders" th:href="@{/createOrders}">createOrders</a><br>
+<br>
+
+<a href="mainPage.html" th:href="@{/}">back to main page</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>List of users</h1>
+
+
+<tr th:each="user : ${users}">
+    <td th:utext="${user.id}">id</td>
+    <td th:utext="${user.firstName}">id</td>
+    <td th:utext="${user.lastName}">id</td>
+    <td th:utext="${user.login}">id</td>
+    <td th:utext="${user.password}">id</td>
+    <td th:utext="${user.email}">id</td>
+    <td th:utext="${user.phoneNumber}">id</td>
+    <td th:utext="${user.document}">id</td>
+    <td th:utext="${user.userRole.name}">id</td>
+    <td th:utext="${user.userStatus.name}">id</td>
+    <br>
+</tr>
+
+<br>
+<a href="createUsers" th:href="@{/createUsers}">createUsers</a><br>
+
+<br>
+<a href="mainPage.html" th:href="@{/}">back to main page</a>
+</body>
+</html>
