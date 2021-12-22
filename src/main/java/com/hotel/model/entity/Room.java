@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,13 +19,10 @@ public class Room {
     private Integer id;
     @Column
     private String name;
-    @Column(name = "room_price")
-    private Double roomPrice;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "class_apartment")
-    private ClassApartment classApartment;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_type")
-    private RoomType roomType;
+    @JoinColumn(name = "room_kind")
+    private RoomKind roomKind;
+    @OneToMany(mappedBy = "room")
+    private List<OrderBooking> orderBookings;
 
 }

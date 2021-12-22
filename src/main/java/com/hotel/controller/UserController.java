@@ -1,92 +1,60 @@
 package com.hotel.controller;
 
 import com.hotel.dto.UserDTO;
+import com.hotel.model.entity.Role;
 import com.hotel.model.entity.User;
-import com.hotel.service.UserRoleService;
+import com.hotel.service.RoleService;
 import com.hotel.service.UserService;
 import com.hotel.service.UserStatusService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
 @Builder
 public class UserController {
     private UserService userService;
-    private UserRoleService userRoleService;
+    private RoleService roleService;
     private UserStatusService userStatusService;
-    //temporary version userRole, userStatus for client
-    private final Integer clientRoleId = 1;
+    private final Integer clientRoleId = 2;
     private final Integer clientStatusId = 1;
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/admin/users")
     public String users(Model model) {
         var users = userService.getAll();
         model.addAttribute("users", users);
-        return "users";
+        return "admin/users";
     }
 
-    @GetMapping(value = "/createUsers")
+    @GetMapping(value = "/registration/createUsers")
     public String userObjectForm(Model model) {
         model.addAttribute("userDTO", new UserDTO());
         return "createUsers";
     }
 
-    @PostMapping(value = "/createUsers")
-    public String createUserObject(@ModelAttribute UserDTO userDTO, Model model) {
-        var user = User.builder()
-                .firstName(userDTO.getFirstName())
-                .lastName(userDTO.getLastName())
-                .login(userDTO.getLogin())
-                .password(userDTO.getPassword())
-                .email(userDTO.getPassword())
-                .phoneNumber(userDTO.getPhoneNumber())
-                .document(userDTO.getDocument())
-                .userRole(userRoleService.getById(clientRoleId))
-                .userStatus(userStatusService.getById(clientStatusId))
-                .build();
-        userService.save(user);
-        var users = userService.getAll();
-        model.addAttribute("users", users);
-        return "users";
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin(Authentication authentication, Model model) {
+        var email =  authentication.getName();
+        var user = userService.getByEmail(email);
+        model.addAttribute("user", user);
+        return "/admin/adminPage";
     }
 
 
-    //The old version, will be cleared
-    @GetMapping(value = "/create")
-    public String userForm() {
-        return "createUsersGetType";
-    }
 
-    @GetMapping(value = "/createUsersGetType")
-    public String createUser(@RequestParam String firstName,
-                             @RequestParam String lastName,
-                             @RequestParam String login,
-                             @RequestParam String password,
-                             @RequestParam String email,
-                             @RequestParam String phoneNumber,
-                             @RequestParam String document,
-                             Model model) {
-        var user = User.builder()
-                .firstName(firstName)
-                .lastName(lastName)
-                .login(login)
-                .password(password)
-                .email(email)
-                .phoneNumber(phoneNumber)
-                .document(document)
-                .userRole(userRoleService.getById(clientRoleId))
-                .userStatus(userStatusService.getById(clientStatusId))
-                .build();
-        userService.save(user);
-        var users = userService.getAll();
-        model.addAttribute("users", users);
-        return "users";
-    }
+
 }
+
+
+

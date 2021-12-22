@@ -1,0 +1,113 @@
+/* header */
+.navbar .navbar-expand-lg .navbar-light {
+    background-color: #f45216;
+}
+
+.navbar-light  {
+    font-family: arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.top-menu li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    height: 1px;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.top-menu li a:hover::after {
+    transform: scale(1);
+}
+
+/*  table  */
+table {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    border-collapse: collapse; /*объединение ячеек */
+    border: 2px solid #e6ac72;
+    margin-left: 20px;
+}
+
+td, th {
+    border: 1px solid #ddd;;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {background-color: #faf1e9;}
+
+th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #e6ac72; /*темнее*/
+    color: #fff;
+    border: 2px solid #e6ac72;
+}
+
+tr:nth-child(even) {
+    background-color: #faf1e9;
+}
+
+.allPage {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+}
+
+.allPageCenter {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.allPageMargin {
+    margin-top: 10px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+    margin-left: 150px;
+}
+
+
+.btnTable {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #e6ac72; /* Цвет фона */
+    color: #fff; /* Белый> цвет текста */
+    padding: 0.5rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    font-size: 16px; /*Размер шрифта*/
+    font-family: arial, sans-serif;
+    border: 2px solid #F79361;
+}
+
+.btnRef {
+    display: inline-block; /* Строчно-блочный элемент */
+    background:  #e6ac72; /* Цвет фона */
+    color: #fff; /* Белый> цвет текста */
+    padding: 0.5rem 1rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    font-size: 16px; /*Размер шрифта*/
+    font-family: arial, sans-serif;
+    border: 2px solid  #e6ac72; /*#daac7e*/;
+    width: 350px;
+}

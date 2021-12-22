@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>bookingResult</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <!-- CSS -->
+    <link th:href="@{/css/clientStyles/clientFormStyle.css}" rel="stylesheet">
+
+    <!-- Bootstrap. Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap. Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
+
+<!-- Refusal   -->
+<div th:switch="${orderBooking}">
+    <h2 th:case="null">No order booking found</h2>
+    <div th:case="*"></div>
+    <div class="allPage">
+        <h2>ATTENTION</h2>
+        <table class="mainTable">
+            <tr>
+                <td>Date arrival:</td>
+                <td th:text="${orderBookingDTO.dateArrival}"></td>
+            </tr>
+
+            <tr>
+                <td>Date departure:</td>
+                <td th:text="${orderBookingDTO.dateDeparture}"></td>
+            </tr>
+            <tr>
+                <td>Room type:</td>
+                <td th:text="#{'description_'+${roomTypes.get((orderBookingDTO.roomType)-1).name}}"></td>
+            </tr>
+            <tr>
+                <td>Class of apartments:</td>
+                <td th:text="${classApartments.get((orderBookingDTO.classApartment)-1).name}"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h6>Sorry, we can't offer you hotel accommodation.<br>
+            Unfortunately, all the rooms of your chosen category are occupied.<br>
+            You can book a room of a different category or change the dates of your stay.</h6>
+        <br>
+        <h5>We will be glad to see you as our guest!</h5>
+        <br>
+        <br>
+        <a style="color:#ffffff" href="orderForms" th:href="@{/client/orderForms}" class="btnClient">New order</a>
+        <br>
+    </div>
+</div>
+</body>
+</html>
+
+

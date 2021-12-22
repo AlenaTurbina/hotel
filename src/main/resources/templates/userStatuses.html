@@ -5,15 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>List of userStatuses</h1>
 
-<tr th:each="userStatus : ${userStatuses}">
-    <td th:utext="${userStatus.id}">id</td>
-    <td th:utext="${userStatus.name}">id</td>
-    <br>
-</tr>
+<table>
+    <h1>List of userStatuses</h1>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tbody>
 
-<br>
-<a href="mainPage.html" th:href="@{/}">back to main page</a>
+    <tr th:each="userStatus : ${userStatuses}">
+        <td th:utext="${userStatus.id}">id</td>
+        <td th:utext="${userStatus.name}">id</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

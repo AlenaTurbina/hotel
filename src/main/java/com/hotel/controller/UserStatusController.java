@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserStatusController {
     private UserStatusService userStatusService;
 
-    @GetMapping(value = "/userStatuses")
+    @GetMapping(value = "/admin/userStatuses")
     public String userStatus(Model model) {
         var userStatuses = userStatusService.getAll();
         model.addAttribute("userStatuses", userStatuses);

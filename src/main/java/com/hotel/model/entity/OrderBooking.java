@@ -37,11 +37,11 @@ public class OrderBooking {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room")
     private Room room;
+    @Column(name = "sum_total")
+    private Double sumTotal;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_status")
     private OrderStatus orderStatus;
-    @OneToOne(mappedBy = "orderBooking", cascade = CascadeType.ALL)
-    private Invoice invoice;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Order_Booking_With_Optional",

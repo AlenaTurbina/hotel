@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Greeting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link th:href="@{/css/mainStyles/firstPageStyle.css}" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
+
+<!-- Carousel -->
+<div class="container-fluid rooms-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/extra/rooms/r1.jpg}" class="d-block w-100" alt="Breakfast">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/extra/rooms/r2.jpg}" class="d-block w-100" alt="Towels">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/extra/rooms/r3.jpg}" class="d-block w-100" alt="Room">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/extra/rooms/b1.jpg}" class="d-block w-100" alt="Lobby">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/extra/rooms/b2.jpg}" class="d-block w-100" alt="Buffet">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/extra/rooms/c1.jpg}" class="d-block w-100" alt="Buffet">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="info-room">
+    <p>
+    <h4>HOTEL EXUDES A FRESH AND MODERN DESIGN WITH LIGHT SHADES OF GREEN, GREY AND BROWN COLOURS, </h4>
+    <h4>WHICH MAKE FOR A COMFORTABLE AND PLEASANT ATMOSPHERE FOR A UNIQUE CITY EXPERIENCE.</h4>
+    </p>
+</div>
+
+</body>
+</html>

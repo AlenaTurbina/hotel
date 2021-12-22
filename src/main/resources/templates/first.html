@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Greeting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link  th:href="@{/css/mainStyles/firstPageStyle.css}" rel="stylesheet">
+
+    <!-- awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Libre+Baskerville:wght@700&family=PT+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #f45216; color:#ffffff" >
+    <div class="container-fluid">
+        <a class="navbar-brand" style="color:#ffffff" href="#">HOTEL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left part  me-auto -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 top-menu">
+                <li class="nav-item" >
+                    <a class="nav-link" style="color:#ffffff" href="first" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" style="color:#ffffff" href="roomsInfo" th:href="@{/roomsInfo}">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#ffffff" href="priceList"
+                       th:href="@{/priceList}">Price-List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#ffffff" href="orderForms"
+                       th:href="@{/client/orderForms}">Booking</a>
+                </li>
+            </ul>
+
+            <!-- Right part   mc-auto -->
+            <ul class="navbar-nav mc-auto mb-2 mb-lg-0 top-menu">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#ffffff" href="admin" th:href="@{admin}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#ffffff" href="registration" th:href="@{registration}">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#ffffff" href="login" th:href="@{login}">Authorization</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Carousel-->
+<div class="container-fluid mainPage-carousel">
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img th:src="@{/extra/firstPage/h1.jpg}" class="d-block w-100" alt="Breakfast">
+            <div class="carousel-notice1">
+            <div class="carousel-caption d-none d-md-block notice1" >
+                <h1>Welcome to</h1>
+                <h1>HOTEL!</h1>
+                <h4>&#9733 &#9733 &#9733 &#9733 &#9733</h4>
+            </div>
+            </div>
+          <div class="carousel-notice2">
+            <div class="carousel-caption d-none d-md-block notice2" >
+                <h3>International standards, local flavours...</h3>
+            </div>
+            </div>
+
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/extra/firstPage/h2.jpg}" class="d-block w-100" alt="Towels">
+
+                <div class="carousel-caption d-none d-md-block noticePage2" >
+                    <h2>HOTEL</h2>
+                    <h4>&#9733 &#9733 &#9733 &#9733 &#9733</h4>
+                    <h2>Everything for your comfort</h2>
+                </div>
+
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/extra/firstPage/h3.jpg}" class="d-block w-100" alt="Room">
+
+            <div class="carousel-caption d-none d-md-block noticePage3" >
+                <h2>HOTEL</h2>
+                <h4>&#9733 &#9733 &#9733 &#9733 &#9733</h4>
+                <h2>Modern rooms</h2>
+            </div>
+
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/extra/firstPage/h4.jpg}" class="d-block w-100" alt="Lobby">
+            <div class="carousel-caption d-none d-md-block noticePage3" >
+                <h2>HOTEL</h2>
+                <h4>&#9733 &#9733 &#9733 &#9733 &#9733</h4>
+                <h2>Fresh and modern lobby-design</h2>
+            </div>
+
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/extra/firstPage/h5.jpg}" class="d-block w-100" alt="Buffet">
+            <div class="carousel-caption d-none d-md-block noticePage3" >
+            <h2>HOTEL</h2>
+            <h4>&#9733 &#9733 &#9733 &#9733 &#9733</h4>
+            <h2>Breakfast Buffet</h2>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+</div>
+</div>
+    <br>
+    <p class="central">
+        GOOD TO KNOW
+    </p>
+    <br>
+    <div class="container" >
+    <div class="row align-items-start">
+        <div class="col column">
+            <h5>Arrival and Departure</h5>
+            <ul class="a">
+                <li>Check-in: 14:00 - 00:00 hours</li>
+                <li>Check-out: Until 12:00 hours</li>
+            </ul>
+            <h5>Smoking policy, pets</h5>
+            <ul class="a">
+                <li>Completely non-smoking policy</li>
+                <li>Pets are not allowed.</li>
+            </ul>
+            <h5>Children and extra beds</h5>
+            <ul class="a">
+                <li>Free! One further child under 6 years stays free of charge using an existing bed.</li>
+                <li>Free! All children under 2 years stay free of charge for children's cots/cribs.</li>
+                <li>The maximum number of extra beds/children's cots permitted in a room is 1.</li>
+            </ul>
+        </div>
+        <div class="col column">
+            <h5>Groups:</h5>
+            <ul class="a">
+                <li>When booking more than 5 rooms, different policies and additional supplements may apply.</li>
+                <li>Booking only with the administrator!</li>
+            </ul>
+
+            <h5>Accepted credit cards:</h5>
+            <ul class="a">
+                <li>American Express, Visa, Euro/Mastercard, Diners Club, JCB</li>
+                <li>Please note that the credit card which will be used for making a reservation must be available at
+                    check-in.
+                </li>
+                <li>The hotel reserves the right to pre-authorise credit cards prior to arrival.</li>
+            </ul>
+        </div>
+        <div class="col column">
+            <h5>Hotel provides</h5>
+            <ul class="a">
+                <li>200 design rooms, including Classic and Deluxe rooms</li>
+                <li>Parking in hotel garage (upon availability)</li>
+                <li>Free Wi-Fi is available throughout Hotel</li>
+                <li>Coffee & Tea making facilities in all our rooms</li>
+                <li>Restaurant café serving pasta from all around the world, as well as local and international dishes
+                </li>
+                <li>Lobby bar</li>
+                <li>Room Service</li>
+                <li>SPA</li>
+                <li>Whirlpool</li>
+                <li>Whole hotel is non-smoking</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+<br>
+    <p class="central">
+    BREAKFAST BUFFET
+    </p>
+
+    <ul class="info">
+        <li>Breakfast is served daily from 6:30 AM – 10:30 AM at restaurant.
+        </li>
+        <li>Our Breakfast buffet offers a wide selection of hot specialties like home-made sausages, eggs, vegetable
+            meals and more.
+        </li>
+        <li>Cold station will invite you to choose from selection of fresh vegetable, salami and cheese plates or take a
+            healthy breakfast with different cereals, dry fruit and nuts.
+        </li>
+    </ul>
+    <br>
+    <br>
+
+<p class="central">
+    WE CAN OFFER
+</p>
+
+<div class="row justify-content-center">
+    <div class="col-4 col align-self-center">
+        <div class="centralContent">
+        SPA<br>
+        harmony of body, mind and spirit
+        </div>
+    </div>
+    <div class="col-4 img-thumbnail imgContent">
+        <img th:src="@{/extra/firstPage/spa.jpg}">
+    </div>
+</div>
+<br>
+<div class="row justify-content-center">
+    <div class="col-4 img-thumbnail imgContent">
+        <img th:src="@{/extra/firstPage/meal.jpg}">
+    </div>
+    <div class="col-4 col align-self-center">
+        <div class="centralContent">
+            RESTAURANT<br>
+            local and international dishes
+        </div>
+    </div>
+</div>
+<br>
+<br>
+    <p class="central">
+    We look forward to welcoming you soon at Hotel!
+    </p>
+<br>
+
+<footer>
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <h4>Information</h4>
+                    <ul class="list-unstyled">
+                        <li>admin@hotel.com</li>
+                        <li>info@hotel.com</li>
+                        <br>
+                        <li>© hotel.com   All Rights Reserved</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <h4>Location</h4>
+                    <ul class="list-unstyled">
+                        <li>Belarus, Brest, Sovetskaya str.1 </li>
+                        <br>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <h4>Contacts</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="tel:+375295555551">+375 29 555 55 51</a></li>
+                        <li><a href="tel:+375295555552">+375 29 555 55 52</a></li>
+                        <li><a href="tel:+375295555553">+375 29 555 55 53</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3 col-6">
+                    <h4>We are in social networks</h4>
+                    <ul class="list-unstyled">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+
+
+
+</body>
+</html>

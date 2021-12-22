@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoomController {
     private RoomService roomService;
 
-    @GetMapping(value = "/rooms")
+    @GetMapping(value = "/admin/rooms")
     public String rooms(Model model) {
         var rooms = roomService.getAll();
         model.addAttribute("rooms", rooms);
-        return "rooms";
+        return "/admin/rooms";
     }
 
 }

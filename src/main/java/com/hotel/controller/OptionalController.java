@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OptionalController {
     private OptionalService optionalService;
 
-    @GetMapping(value = "/optionals")
+    //creating a list of objects - class "Optionals" (method GET)
+    @GetMapping(value = "/admin/optionals")
     private String optionals(Model model) {
         var optionals = optionalService.getAll();
         model.addAttribute("optionals", optionals);
-        return "optionals";
+        return "/admin/optionals";
     }
 }

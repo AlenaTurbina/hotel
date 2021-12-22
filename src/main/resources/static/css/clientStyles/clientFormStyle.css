@@ -1,0 +1,272 @@
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section{
+    padding: 50px 0;
+}
+
+a {
+    color: #faf1e9;
+}
+
+.allPage a:hover {
+    color: #faf1e9;
+}
+
+/* header */
+.navbar .navbar-expand-lg .navbar-light {
+    background-color: #f45216;
+}
+
+.navbar-light  {
+    font-family: arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.top-menu li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    height: 1px;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.top-menu li a:hover::after {
+    transform: scale(1);
+}
+
+
+input[type=text], select {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px; /*Размер шрифта*/
+    color: #441d05;
+    width: 450px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=date] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px; /*Размер шрифта*/
+    color: #441d05;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 18px; /*Размер шрифта*/
+    width: 250px;
+    background-color: #e6ac72;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=reset] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 18px; /*Размер шрифта*/
+    width: 250px;
+    background-color: #e6ac72;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color:  #f45216;
+}
+
+input[type=reset]:hover {
+    background-color: #f45216;
+}
+
+.orderForm {
+    font-family: BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #441d05;
+    border-radius: 5px;
+    background-color: #faf1e9;
+    padding: 20px;
+}
+
+
+.allPage {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+}
+
+.allPageCenter {
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    text-align: center;
+}
+
+.attention {
+    margin-left: 100px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color:  #441d05;
+    background-color: white;
+}
+
+
+label {
+    width: 150px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/*table*/
+.mainTable {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    border-collapse: collapse; /*объединение ячеек */
+    width: 1000px;
+}
+.mainTable td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+.mainTable tr:hover {background-color: #faf1e9;}
+
+
+
+.mainTable tr:nth-child(even) {
+    background-color: #faf1e9;
+}
+
+.summa {
+    color:  #441d05;
+    font-weight: bold;
+    border-top: 2px solid #441d05;
+}
+
+.btnClient {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #e6ac72; /* Цвет фона */
+    color: #fff; /* Белый> цвет текста */
+    padding: 0.5rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    font-size: 20px; /*Размер шрифта*/
+    font-family: BORUTTA, sans-serif;
+    border: 1px solid #e6ac72;
+    width: 250px;
+}
+
+
+
+.tableClient {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    border-collapse: collapse; /*объединение ячеек */
+    border: 2px solid #e6ac72;
+    margin-left: 20px;
+}
+
+td, th {
+    border: 1px solid #ddd;;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {background-color: #faf1e9;}
+
+th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #e6ac72; /*темнее*/
+    color: #fff;
+    border: 2px solid #e6ac72;
+}
+
+.optionalsTableClient td, th {
+    text-align: left;
+    padding: 1px;
+    padding-right: 8px;
+    border-style: hidden;
+}
+
+.accordionClient {
+    cursor: pointer;
+    padding: 18px;
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #faf1e9;
+    border-radius: 5px;
+    text-align: left;
+    outline: 2px;
+    font-size: 16px;
+    transition: 0.4s;
+}
+
+.accordion-header > .accordion-button {
+    background-color:#e6ac72;
+    font-family: BORUTTA, sans-serif;
+    color:  #fff;
+    font-weight: bold;
+    border: 5px solid #e6ac72;
+    border-radius: 3px;
+}
+
+.accordion-header > .accordion-button:focus {
+    border-color:  #faf1e9;
+    background-color: #faf1e9;
+    font-family: BORUTTA, sans-serif;
+    color:   #441d05;
+    outline: none;
+}
+
+.accordion-header > .accordion-button:hover {
+    border-color:  #faf1e9;
+    background-color: #e6ac72;
+    font-family: BORUTTA, sans-serif;
+    color:  #fff;
+    outline: none;
+}
+
+.accordion-header > .accordion-button:not(.collapsed){
+    background-color: #e6ac72;
+    border-color:  #faf1e9;
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    outline: none;
+}
+
+.accordion-header >.accordion-button:focus{outline: none;}

@@ -1,6 +1,7 @@
 package com.hotel.service.impl;
 
-import com.hotel.model.dao.ClassApartmentRepository;
+import com.hotel.dto.ClassApartmentDTO;
+import com.hotel.model.repository.ClassApartmentRepository;
 import com.hotel.model.entity.ClassApartment;
 import com.hotel.service.ClassApartmentService;
 import lombok.AllArgsConstructor;
@@ -16,5 +17,26 @@ public class ClassApartmentServiceImpl implements ClassApartmentService {
     @Override
     public List<ClassApartment> getAll() {
         return classApartmentRepository.findAll();
+    }
+
+    @Override
+    public ClassApartment getById(Integer id) {
+        return classApartmentRepository.getById(id);
+    }
+
+    @Override
+    public ClassApartment saveByDTO(ClassApartmentDTO classApartmentDTO) {
+        var classApartment = ClassApartment.builder()
+                .name(classApartmentDTO.getName())
+                .placePrice(classApartmentDTO.getPlacePrice())
+                .build();
+
+        return classApartmentRepository.saveAndFlush(classApartment);
+    }
+
+    @Override
+    public void save(ClassApartment classApartment) {
+        classApartmentRepository.saveAndFlush(classApartment);
+
     }
 }

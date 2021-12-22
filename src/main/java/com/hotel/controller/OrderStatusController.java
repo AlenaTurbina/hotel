@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OrderStatusController {
     private OrderStatusService orderStatusService;
 
-    @GetMapping(value = "/orderStatuses")
+    @GetMapping(value = "/admin/orderStatuses")
     public String orderStatuses(Model model) {
         var orderStatuses = orderStatusService.getAll();
         model.addAttribute("orderStatuses", orderStatuses);

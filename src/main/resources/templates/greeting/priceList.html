@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>priceList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS -->
+    <link th:href="@{/css/mainStyles/tableStyle.css}" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
+
+<div class="allPage">
+    <h2>PRICE-LIST</h2>
+</div>
+
+<table class="tableMargin">
+    <tr>
+        <th>№</th>
+        <th>Type of room</th>
+        <th>Class apartment</th>
+        <th>Room price, $ <br> (per day)</th>
+        <th>Place price, $ <br> (per day, per person)</th>
+    </tr>
+    <tbody>
+    <tr th:each="roomKind : ${roomKinds}">
+        <td th:utext="${roomKind.id}">id</td>
+        <td th:utext="#{'description_'+${roomKind.roomType.name}}">roomType</td>
+        <td th:utext="${roomKind.classApartment.name}">classApartments</td>
+        <td th:utext="${roomKind.roomPrice}">RoomPrice</td>
+        <td th:utext="${roomKind.classApartment.placePrice}">placePrice</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<div style="margin-left: 20px">
+    <a style="color:#ffffff" href="freeRooms" th:href="@{/freeRoomForms}" class="btnRef">Available rooms for selected
+        dates</a>
+</div>
+
+</body>
+</html>

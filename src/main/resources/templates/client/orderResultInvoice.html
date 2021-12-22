@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>bookingResult</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS -->
+    <link th:href="@{/css/clientStyles/clientFormStyle.css}" rel="stylesheet">
+
+    <!-- Bootstrap. Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap. Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
+
+<!--Invoice -->
+<div class="allPage">
+    <h1>INVOICE</h1>
+    <table class="mainTable">
+        <tr>
+            <td>Date of order</td>
+            <td th:text="${orderBooking.date}"></td>
+        </tr>
+        <tr>
+            <td>Client's first name:</td>
+            <td th:text="${orderBooking.client.firstName}"></td>
+        </tr>
+        <tr>
+            <td>Client's last name:</td>
+            <td th:text="${orderBooking.client.lastName}"></td>
+        </tr>
+        <tr>
+            <td>Date arrival:</td>
+            <td th:text="${orderBooking.dateArrival}"></td>
+        </tr>
+        <tr>
+            <td>Date departure:</td>
+            <td th:text="${orderBooking.dateDeparture}"></td>
+        </tr>
+        <tr>
+            <td>Room type:</td>
+            <td th:text="#{'description_'+${orderBooking.room.roomKind.roomType.name}}"></td>
+        </tr>
+        <tr>
+            <td>Class of apartments:</td>
+            <td th:text="${orderBooking.room.roomKind.classApartment.name}"></td>
+        </tr>
+        <tr>
+            <td>Optionals:</td>
+            <td>
+                <table class="optionalsTable">
+                    <td th:each="optional : ${orderBooking.optionals}"
+                        th:text="${optional.name}">
+                    </td>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="summa">
+            <td>The amount to be paid, $:</td>
+            <td th:text="${orderBooking.sumTotal}"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <h4>Attention:</h4>
+    <p>You have only 3 hours to pay the invoice. After this time, the order will be canceled</p>
+
+    <h4>Accepted credit cards:</h4>
+    <ul class="a">
+        <li>American Express, Visa, Euro/Mastercard, Diners Club, JCB
+        </li>
+        <li>Please note that the credit card which will be used for making a reservation must be available at
+            check-in.
+        </li>
+        <li>The hotel reserves the right to pre-authorise credit cards prior to arrival.</li>
+    </ul>
+
+</div>
+</body>
+</html>

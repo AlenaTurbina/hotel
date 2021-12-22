@@ -1,6 +1,6 @@
 package com.hotel.service.impl;
 
-import com.hotel.model.dao.UserStatusRepository;
+import com.hotel.model.repository.UserStatusRepository;
 import com.hotel.model.entity.UserStatus;
 import com.hotel.service.UserStatusService;
 import lombok.AllArgsConstructor;

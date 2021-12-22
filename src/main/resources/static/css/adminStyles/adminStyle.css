@@ -1,0 +1,313 @@
+/* ADMIN MAIN PANEL */
+.listGroupStyle {
+    max-width: 400px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+/* Heading of admin panel */
+.list-group > .list-group-item.active  {
+    font-family: arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #f45216;
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    min-height: 50px;
+}
+/* Buttons of admin panel */
+.list-group > .list-group-item  {
+    font-family: arial, Helvetica, sans-serif;
+    font-size: 16px; /*Размер шрифта*/
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #e6ac72;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    min-height: 50px;
+}
+/* Buttons of admin panel/hover */
+.list-group > .list-group-item:hover {
+    background-color: #f45216;
+    color: white;
+
+}
+
+/*Не работает
+.list-group > .list-group-item .super a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: #f45216;
+    height: 1px;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.super a:hover::after {
+    transform: scale(1);
+}
+*/
+
+/* -----------END ADMIN MAIN PANEL ------------*/
+
+/*------------TEXT WITH DIFFERENT MARGIN --------------*/
+.allPage {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+}
+
+.allPageWithoutMargin {
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+}
+
+.allPageCenter {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.allPageMargin {
+    margin-top: 10px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+    margin-left: 150px;
+}
+
+/*------------END TEXT WITH DIFFERENT MARGIN --------------*/
+
+
+/*-------------TABLES FOR ADMIN PAGES -------------------*/
+.tableAdmin {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    size: 16px;
+    border-collapse: collapse; /*объединение ячеек */
+    border: 2px solid #e6ac72;
+    margin-left: 20px;
+}
+
+.tableAdmin td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.tableAdmin tr:hover {
+    background-color: #faf1e9;
+}
+
+/* Header */
+.tableAdmin th {
+    padding: 8px;
+    size: 16px;
+    text-align: center;
+    background-color: #f67444; /*темнее*/
+    color: #fff;
+    border: 2px solid #f67444;
+}
+ /* Header with fix width for small tables */
+.tableAdminFix th {
+    padding: 8px;
+    size: 16px;
+    text-align: center;
+    width: 150px;
+    background-color: #f67444; /*темнее*/
+    color: #fff;
+    border: 2px solid #f67444;
+}
+
+/* Color for even rows */
+tr:nth-child(even) {
+    background-color: #faf1e9;
+}
+
+/* CSS for embedded tables */
+.embeddedTableAdmin {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    margin: auto;
+}
+
+.embeddedTableAdmin td, th {
+    text-align: left;
+    padding: 1px;
+    padding-right: 8px;
+    border-style: hidden;
+}
+
+/* ----------- END TABLES FOR ADMIN PAGE ------------*/
+
+
+/* ----------- BUTTONS FOR ADMIN PAGE ------------*/
+
+.btnAdminTable {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #f67444; /* Цвет фона */
+    color: #fff; /* Белый> цвет текста */
+    padding: 0.5rem 1rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    font-size: 14px; /*Размер шрифта*/
+    font-family: BORUTTA, sans-serif;
+    text-align: center;
+    width: 80px;
+}
+
+.btnRef {
+    display: inline-block;
+    background: #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: BORUTTA, sans-serif;
+    text-align: center;
+    border: 1px solid #e6ac72;
+    width: 200px;
+}
+/* ----------- END BUTTONS FOR ADMIN PAGE ------------*/
+
+/*-----------------FORM------------------*/
+.adminForm {
+    font-family: BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #441d05;
+    border-radius: 5px;
+    background-color: #faf1e9;
+    padding: 20px;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+}
+
+/* Input width: 450px; */
+.inp {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px;
+    color: #441d05;
+    width: 450px;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Input width: 200px; for type=date  */
+.inpDate {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px;
+    color: #441d05;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+}
+
+/* Input ordinary */
+.ord {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Input hidden */
+.hid {
+    border: none;
+    background-color: #faf1e9;
+    outline:none;
+}
+
+/* Select field */
+select {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px; /*Размер шрифта*/
+    color: #441d05;
+    width: 450px;
+    padding: 12px 20px;
+    margin: 8px 2px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Input type=checkbox */
+input[type=checkbox] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px;
+    color: #441d05;
+    padding: 12px ;
+    margin: 4px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    background-color: #faf1e9;
+    outline:none;
+}
+
+input[type=checkbox]:checked {
+    background-color: #faf1e9;
+}
+
+/* Input type=submit, type=reset */
+input[type=submit],[type=reset] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 18px; /*Размер шрифта*/
+    width: 250px;
+    background-color: #e6ac72;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color:  #f45216;
+}
+
+input[type=reset]:hover {
+    background-color: #f45216;
+}
+
+
+
+
+
