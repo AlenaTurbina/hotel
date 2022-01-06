@@ -1,0 +1,169 @@
+/* ----------------NAVBAR--------------- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section{
+    padding: 50px 0;
+}
+
+a {
+    color: #faf1e9;
+}
+
+.allPage a:hover {
+    color: #faf1e9;
+}
+
+/* navbar-header */
+.navbar .navbar-expand-lg .navbar-light {
+    background-color: #f45216;
+}
+
+.navbar-light  {
+    font-family: arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.top-menu li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    height: 1px;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.top-menu li a:hover::after {
+    transform: scale(1);
+}
+/* -----------END NAVBAR------------*/
+
+/*-------------FORM----------------*/
+.containerWidthLogin {
+    max-width: 800px;
+}
+
+.containerWidthRegistration {
+    max-width: 1200px;
+}
+
+.commonStylesForm{
+    font-family: BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 450;
+    color: #441d05;
+    border-radius: 5px;
+    background-color: #faf1e9;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.registrationForm {
+    border: 1px solid #e6ac72;
+}
+
+.loginForm {
+    padding-left: 80px;
+    border: 1px solid #e6ac72;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.colWidthRegistration {
+    width: 400px;
+}
+/* -----------END FORM------------*/
+
+/*------------INPUT, REFERENCE---------------*/
+.inputRegistration {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px; /*Размер шрифта*/
+    color: #441d05;
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inputLogin {
+    font-family: BORUTTA, sans-serif;
+    font-size: 14px;
+    color: #441d05;
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Input type=submit */
+input[type=submit] {
+    font-family: BORUTTA, sans-serif;
+    font-size: 18px;
+    width: 250px;
+    background-color: #e6ac72;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #f45216;
+}
+
+.btnLogin {
+    display: inline-block;
+    background: #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: BORUTTA, sans-serif;
+    border: 1px solid #e6ac72;
+    width: 400px;
+}
+
+.form-group .btnLogin{
+    color: #fff;
+}
+/*------------END INPUT, REFERENCE---------------*/
+
+/*------------TEXT WITH DIFFERENT MARGIN --------------*/
+.allPage {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+    padding: 20px;
+}
+
+.allPageCenter {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color:  #441d05;
+    background-color: white;
+    text-align: center;
+}
+/*------------END WITH DIFFERENT MARGIN --------------*/

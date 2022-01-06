@@ -40,25 +40,7 @@
 .list-group > .list-group-item:hover {
     background-color: #f45216;
     color: white;
-
 }
-
-/*Не работает
-.list-group > .list-group-item .super a::after {
-    content: '';
-    display: block;
-    width: 100%;
-    background-color: #f45216;
-    height: 1px;
-    transition: all .3s;
-    transform: scale(0);
-}
-
-.super a:hover::after {
-    transform: scale(1);
-}
-*/
-
 /* -----------END ADMIN MAIN PANEL ------------*/
 
 /*------------TEXT WITH DIFFERENT MARGIN --------------*/
@@ -105,13 +87,12 @@
 
 /*------------END TEXT WITH DIFFERENT MARGIN --------------*/
 
-
 /*-------------TABLES FOR ADMIN PAGES -------------------*/
 .tableAdmin {
     font-family: BORUTTA, sans-serif;
     color:  #441d05;
     size: 16px;
-    border-collapse: collapse; /*объединение ячеек */
+    border-collapse: collapse;
     border: 2px solid #e6ac72;
     margin-left: 20px;
 }
@@ -169,17 +150,16 @@ tr:nth-child(even) {
 
 /* ----------- END TABLES FOR ADMIN PAGE ------------*/
 
-
 /* ----------- BUTTONS FOR ADMIN PAGE ------------*/
 
 .btnAdminTable {
-    display: inline-block; /* Строчно-блочный элемент */
-    background: #f67444; /* Цвет фона */
-    color: #fff; /* Белый> цвет текста */
-    padding: 0.5rem 1rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-    font-size: 14px; /*Размер шрифта*/
+    display: inline-block;
+    background: #f67444;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
     font-family: BORUTTA, sans-serif;
     text-align: center;
     width: 80px;
@@ -256,7 +236,7 @@ label {
 /* Select field */
 select {
     font-family: BORUTTA, sans-serif;
-    font-size: 14px; /*Размер шрифта*/
+    font-size: 14px;
     color: #441d05;
     width: 450px;
     padding: 12px 20px;
@@ -288,7 +268,7 @@ input[type=checkbox]:checked {
 /* Input type=submit, type=reset */
 input[type=submit],[type=reset] {
     font-family: BORUTTA, sans-serif;
-    font-size: 18px; /*Размер шрифта*/
+    font-size: 18px;
     width: 250px;
     background-color: #e6ac72;
     color: white;

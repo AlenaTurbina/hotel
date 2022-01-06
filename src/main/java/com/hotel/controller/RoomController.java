@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoomController {
     private RoomService roomService;
 
+    //List of Rooms /GET/
     @GetMapping(value = "/admin/rooms")
     public String rooms(Model model) {
         var rooms = roomService.getAll();

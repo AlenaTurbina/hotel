@@ -69,7 +69,7 @@
                     <td th:utext="${orderBooking.sumTotal}"></td>
                     <td th:utext="${orderBooking.orderStatus.name}"></td>
                     <td>
-                        <a style="color:#ffffff" th:href="@{orderBookings/update/{id}(id=${orderBooking.id})}"
+                        <a style="color:#ffffff" th:href="@{/admin/orderBookings/update/{id}(id=${orderBooking.id})}"
                            class="btnAdminTable">Edit</a>
                     </td>
                 </tr>

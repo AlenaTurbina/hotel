@@ -8,20 +8,17 @@ import com.hotel.service.RoleService;
 import com.hotel.service.UserService;
 import com.hotel.service.UserStatusService;
 import lombok.AllArgsConstructor;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static com.hotel.utilit.Constant.ID_DEFAULT_ROLE_CLIENT;
+import static com.hotel.utilit.Constant.ID_DEFAULT_USER_STATUS_ACTIVE;
+
 
 @Service
 @AllArgsConstructor
@@ -29,10 +26,6 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleService roleService;
     private UserStatusService userStatusService;
-
-    private final Integer clientRoleId = 2;     //default value for new user: role = "CLIENT"
-    private final Integer clientStatusId = 1;   //default value for new user: status = "ACTIVE"
-
     private PasswordEncoder passwordEncoder;
 
     @Override
@@ -51,41 +44,31 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-
     @Override
-    public void save1(UserDTO userDTO) {
+    public void save(UserDTO userDTO) {
         var password = passwordEncoder.encode(userDTO.getPassword());
-        List<Role> roles = new ArrayList<>(List.of(roleService.getById(clientRoleId)));
+        List<Role> roles = new ArrayList<>(List.of(roleService.getById(ID_DEFAULT_ROLE_CLIENT)));
         var user = User.builder()
                 .email(userDTO.getEmail())
                 .password(password)
                 .firstName(userDTO.getFirstName())
                 .lastName(userDTO.getLastName())
+                .phoneNumber(userDTO.getPhoneNumber())
+                .document(userDTO.getDocument())
                 .roles(roles)
-                .userStatus(userStatusService.getById(clientStatusId))
+                .userStatus(userStatusService.getById(ID_DEFAULT_USER_STATUS_ACTIVE))
                 .build();
         userRepository.saveAndFlush(user);
     }
 
-//User --> UserDetails
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        User user = userRepository.findByEmail(email);
-        if(user == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
-        }
-        return new org.springframework.security.core.userdetails.User(
-                user.getEmail(),
-                user.getPassword(),
-                mapRolesToAuthorities(user.getRoles()));
+    public User findLoggedUser(Authentication authentication) {
+        var user = getByEmail(authentication.getName());
+        return user;
     }
 
-
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+    @Override
+    public void update(User user) {
+        userRepository.saveAndFlush(user);
     }
-
-
-
 }

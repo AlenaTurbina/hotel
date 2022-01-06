@@ -2,22 +2,22 @@ package com.hotel.service;
 
 import com.hotel.dto.UserDTO;
 import com.hotel.model.entity.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
-public interface UserService extends UserDetailsService {
-   List<User> getAll();
+public interface UserService {
 
-   User getById(Integer id);
+    List<User> getAll();
 
-//   User save(UserDTO userDTO);
+    User getById(Integer id);
 
-   User getByEmail(String email);
+    User getByEmail(String email);
 
-   void save1(UserDTO userDTO);
+    void save(UserDTO userDTO);
 
+    User findLoggedUser(Authentication authentication);
 
-
+    void update(User user);
 
 }

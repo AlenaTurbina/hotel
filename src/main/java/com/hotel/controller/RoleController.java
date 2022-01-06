@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoleController {
     private RoleService roleService;
 
+    //List of Roles /GET/
     @GetMapping(value = "/admin/roles")
     public String roles(Model model) {
         var roles = roleService.getAll();
         model.addAttribute("roles", roles);
-        return "roles";
+        return "/admin/roles";
     }
 }

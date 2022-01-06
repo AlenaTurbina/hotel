@@ -32,8 +32,36 @@
 
             <form action="#" th:action="@{/admin/orderBookings/update}" th:object="${orderBooking}" method="post"
                   class="adminForm">
+
+                <p>
+                    <label for="rooms">Room</label>
+                    <select id="rooms" th:field="*{room.id}">
+                        <option class="option1" value="">Select room</option>
+                        <option th:each="room : ${rooms}"
+                                th:value="${room.id}"
+                                th:text="${room.name}">
+                        </option>
+                    </select>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('room.id')}"
+                     th:errors="*{room.id}"></div>
+
+                </p>
+                <p>
+                    <label for="orderStatus">Order status</label>
+                    <select id="orderStatus" th:field="*{orderStatus.id}">
+                        <option class="option1" value="">Select orderStatus</option>
+                        <option th:each="orderStatus1 : ${orderStatuses}"
+                                th:value="${orderStatus1.id}"
+                                th:text="${orderStatus1.name}">
+                        </option>
+                    </select>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('orderStatus.id')}"
+                     th:errors="*{orderStatus.id}"></div>
+                </p>
+                <br>
+                <br>
                 <label for="id">ID</label>
-                <input readonly type="number" th:field="*{id}" id="id" placeholder="ID" class="inp hid" >
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="ID" class="inp hid">
                 <br>
                 <label for="date">Date of order</label>
                 <input readonly type="date" th:field="*{date}" id="date" placeholder="date" class="inp hid">
@@ -57,31 +85,12 @@
                 <label for="optionals">Optionals</label>
                 <tr th:each="optional : ${optionals}">
                     <input onclick="return false" id="optionals" type="checkbox" th:field="*{optionals}"
-                           th:value="${optional.id}" />
+                           th:value="${optional.id}"/>
                     <label th:text="${optional.name}" style="width: 90px"></label>
                 </tr>
                 <br>
                 <br>
 
-                <p>
-                    <label for="rooms">Room</label>
-                    <select id="rooms" th:field="*{room.id}">
-                        <option class="option1" value="">Select room</option>
-                        <option th:each="room : ${rooms}"
-                                th:value="${room.id}"
-                                th:text="${room.name}">
-                        </option>
-                    </select>
-                </p>
-                <label for="orderStatus">Order status</label>
-                <select id="orderStatus" th:field="*{orderStatus.id}">
-                    <option class="option1" value="">Select orderStatus</option>
-                    <option th:each="orderStatus1 : ${orderStatuses}"
-                            th:value="${orderStatus1.id}"
-                            th:text="${orderStatus1.name}">
-                    </option>
-                </select>
-                </p>
                 <p><input type="submit" id="submitButton" value="Save"/></p>
             </form>
         </div>

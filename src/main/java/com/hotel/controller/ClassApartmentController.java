@@ -3,9 +3,12 @@ package com.hotel.controller;
 import com.hotel.dto.ClassApartmentDTO;
 import com.hotel.model.entity.ClassApartment;
 import com.hotel.service.ClassApartmentService;
+import com.hotel.validator.ClassApartmentUpdateValidator;
+import com.hotel.validator.ClassApartmentValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/admin/classApartments")
@@ -13,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class ClassApartmentController {
     private ClassApartmentService classApartmentService;
+    private ClassApartmentUpdateValidator classApartmentUpdateValidator;
+    private ClassApartmentValidator classApartmentValidator;
 
-
-//creating a list of objects - class "ClassApartment" (method GET)
-
+    //List of ClassApartment /GET/
     @GetMapping()
     public String classApartments(Model model) {
         var classApartments = classApartmentService.getAll();
@@ -24,9 +27,7 @@ public class ClassApartmentController {
         return "/admin/classApartments";
     }
 
-
-//create new object of Class Apartment (method GET, method POST)
-
+    //Create new classApartment /GET, POST/
     @GetMapping("/create")
     public String createClassApartmentsForm(Model model) {
         var classApartmentDTO = new ClassApartmentDTO();
@@ -35,14 +36,17 @@ public class ClassApartmentController {
     }
 
     @PostMapping("/create")
-    public String saveClassApartments(@ModelAttribute ClassApartmentDTO classApartmentDTO) {
-        classApartmentService.saveByDTO(classApartmentDTO);
+    public String saveClassApartments(@ModelAttribute ClassApartmentDTO classApartmentDTO, BindingResult bindingResult) {
+        classApartmentValidator.validate(classApartmentDTO, bindingResult);
+        if (bindingResult.hasErrors()){
+            return "/admin/createClassApartments";
+        }
+        classApartmentService.save(classApartmentDTO);
         return "redirect:/admin/classApartments";
     }
 
 
-//update object of Class Apartment (method GET, method POST)
-
+    //Update classApartment /GET, POST/
     @GetMapping("/update/{id}")
     public String updateClassApartmentsForm(@PathVariable("id") Integer id, Model model) {
         var classApartment = classApartmentService.getById(id);
@@ -51,8 +55,13 @@ public class ClassApartmentController {
     }
 
     @PostMapping("/update")
-    public String updateClassApartments(ClassApartment classApartment) {
-        classApartmentService.save(classApartment);
+    public String updateClassApartments(ClassApartment classApartment, BindingResult bindingResult) {
+        classApartmentUpdateValidator.validate(classApartment, bindingResult);
+        if (bindingResult.hasErrors()){
+            return "/admin/updateClassApartments";
+        }
+
+        classApartmentService.update(classApartment);
         return "redirect:/admin/classApartments";
     }
 

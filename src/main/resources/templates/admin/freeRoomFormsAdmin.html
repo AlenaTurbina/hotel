@@ -40,11 +40,15 @@
                         <label for="dateArrival">Date arrival:</label>
                         <input id="dateArrival" type="date" th:value="*{dateArrival}" th:field="*{dateArrival}"
                                required="required" class="inpDate ord"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('dateArrival')}"
+                         th:errors="*{dateArrival}"></div>
                     </p>
                     <p>
                         <label for="dateDeparture">Date departure:</label>
                         <input id="dateDeparture" type="date" th:value="*{dateDeparture}" th:field="*{dateDeparture}"
                                required="required" class="inpDate ord"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('dateDeparture')}"
+                         th:errors="*{dateDeparture}"></div>
                     </p>
                     <p>
                         <input type="submit" id="submitButton" value="Show"/>

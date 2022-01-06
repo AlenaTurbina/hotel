@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head lang="en">
+    <title>UserUpdate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS -->
+    <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
+
+    <!-- BootStrap. Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BootStrap. Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-md-3">
+            <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
+        </div>
+        <div class="col">
+
+            <!-- Form -->
+            <div class="allPageWithoutMargin">
+                <h2>Order Bookings form update</h2>
+            </div>
+
+            <form action="#" th:action="@{/admin/users/update}" th:object="${user}" method="post"
+                  class="adminForm">
+                <p>
+                    <label for="userStatus">User status</label>
+                    <select id="userStatus" th:field="*{userStatus}">
+                        <option class="option1" value="">Select orderStatus</option>
+                        <option th:each="userStatus : ${userStatuses}"
+                                th:value="${userStatus.id}"
+                                th:text="${userStatus.name}">
+                        </option>
+                    </select>
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('userStatus')}"
+                     th:errors="*{userStatus}"></div>
+
+                </p>
+                <br>
+                <p>
+                    <label for="roles">Roles</label>
+                    <tr th:each="role : ${roles}">
+                        <input id="roles" type="checkbox" th:field="*{roles}"
+                               th:value="${role.id}"/>
+                        <label th:text="${role.name}" style="width: 120px"></label>
+                    </tr>
+                </p>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('roles')}"
+                     th:errors="*{roles}"></div>
+
+                <br>
+                <br>
+                <label for="id">ID</label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="ID" class="inp hid">
+                <br>
+                <label for="firstName">First name</label>
+                <input readonly type="text" th:field="*{firstName}" id="firstName" class="inp hid">
+                <br>
+                <label for="lastName">Last name</label>
+                <input readonly type="text" th:field="*{lastName}" id="lastName" class="inp hid">
+                <br>
+                <label for="phoneNumber">Phone number</label>
+                <input readonly type="text" th:field="*{phoneNumber}" id="phoneNumber" class="inp hid">
+                <br>
+                <label for="document">Document</label>
+                <input readonly type="text" th:field="*{document}" id="document" class="inp hid">
+                <br>
+                <label for="email">Email</label>
+                <input readonly type="email" th:field="*{email}" id="email" class="inp hid">
+                <br>
+                <label for="password">Password</label>
+                <input readonly type="text" th:field="*{password}" id="password" class="inp hid">
+                <br>
+
+                <p><input type="submit" id="submitButton" value="Save"/></p>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

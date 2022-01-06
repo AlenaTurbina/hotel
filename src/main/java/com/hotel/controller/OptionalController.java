@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OptionalController {
     private OptionalService optionalService;
 
-    //creating a list of objects - class "Optionals" (method GET)
+    //List of Optionals /GET/
     @GetMapping(value = "/admin/optionals")
     private String optionals(Model model) {
         var optionals = optionalService.getAll();

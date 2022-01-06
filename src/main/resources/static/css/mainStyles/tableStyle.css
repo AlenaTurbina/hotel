@@ -1,3 +1,4 @@
+/* ----------------NAVBAR--------------- */
 /* header */
 .navbar .navbar-expand-lg .navbar-light {
     background-color: #f45216;
@@ -23,12 +24,13 @@
 .top-menu li a:hover::after {
     transform: scale(1);
 }
+/*-------------END NAVBAR-----------*/
 
-/*  table  */
+/*--------------TABLE--------------*/
 table {
     font-family: BORUTTA, sans-serif;
     color:  #441d05;
-    border-collapse: collapse; /*объединение ячеек */
+    border-collapse: collapse;
     border: 2px solid #e6ac72;
     margin-left: 20px;
 }
@@ -53,7 +55,9 @@ th {
 tr:nth-child(even) {
     background-color: #faf1e9;
 }
+/*--------------TABLE--------------*/
 
+/*------------TEXT WITH DIFFERENT MARGIN --------------*/
 .allPage {
     margin-top: 60px;
     font-family:  BORUTTA, sans-serif;
@@ -85,29 +89,31 @@ tr:nth-child(even) {
     padding: 20px;
     margin-left: 150px;
 }
+/*------------END TEXT WITH DIFFERENT MARGIN ----------*/
 
-
+/*--------------BUTTON--------------*/
 .btnTable {
-    display: inline-block; /* Строчно-блочный элемент */
-    background: #e6ac72; /* Цвет фона */
-    color: #fff; /* Белый> цвет текста */
-    padding: 0.5rem 1.5rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-    font-size: 16px; /*Размер шрифта*/
+    display: inline-block;
+    background: #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 16px;
     font-family: arial, sans-serif;
     border: 2px solid #F79361;
 }
 
 .btnRef {
-    display: inline-block; /* Строчно-блочный элемент */
-    background:  #e6ac72; /* Цвет фона */
-    color: #fff; /* Белый> цвет текста */
-    padding: 0.5rem 1rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-    font-size: 16px; /*Размер шрифта*/
+    display: inline-block;
+    background:  #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 16px;
     font-family: arial, sans-serif;
-    border: 2px solid  #e6ac72; /*#daac7e*/;
+    border: 2px solid  #e6ac72;
     width: 350px;
 }
+/*--------------END BUTTON--------------*/

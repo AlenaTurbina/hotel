@@ -59,7 +59,7 @@
                     <td th:text="${roomKind.roomType.quantityPlaces}"></td>
                     <td th:text="${roomKind.roomPrice}"></td>
                     <td th:text="${roomKind.classApartment.placePrice}"></td>
-                    <td th:text="${freeRooms.get(roomKind) != null} ? ${freeRooms.get(roomKind).toString()} : 'no free'"></td>
+                    <td th:text="${freeRooms.get(roomKind) != 0} ? ${freeRooms.get(roomKind).toString()} : 'no free'"></td>
                 </tbody>
             </table>
         </div>

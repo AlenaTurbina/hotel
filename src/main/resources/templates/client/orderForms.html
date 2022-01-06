@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
-    <title>orderForm</title>
+    <title>HotelBooking</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/clientStyles/clientFormStyle.css}" rel="stylesheet">
@@ -21,9 +21,9 @@
 <body>
 
 <!-- Navbar -->
-<div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
+<div th:insert="/fragments/clientFragments :: navbarClientAccountPages"></div>
 
-<!-- Order forma -->
+<!-- Order form -->
 <div class="allPage">
     <div class="attention">
         <th th:text=" ${user.firstName} + ' ' + ${user.lastName} + '!' +
@@ -127,7 +127,8 @@
                                 <input id="dateDeparture" type="date" th:value="*{dateDeparture}"
                                        th:field="*{dateDeparture}"
                                        required="required"/>
-
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('dateDeparture')}"
+                                 th:errors="*{dateDeparture}"></div>
                             </p>
                             <p>
                                 <label for="quantity">Quantity persons:</label>
@@ -148,6 +149,8 @@
                                             th:text="#{'description_'+${roomType.name}}">
                                     </option>
                                 </select>
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('roomType')}"
+                                 th:errors="*{roomType}"></div>
                             </p>
                             <p>
                                 <label for="classApartments">Class apartment:</label>

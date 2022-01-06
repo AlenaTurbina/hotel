@@ -33,9 +33,15 @@
                   class="adminForm">
 
                 <label for="name">Name</label>
-                <input type="text" id="name" th:value="*{name}" th:field="*{name}" required="required" class="inp ord"/></p>
+                <input type="text" id="name" th:value="*{name}" th:field="*{name}" required="required" class="inp ord"/>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"
+                     th:errors="*{name}"></div>
+
+
                 <label for="placePrice">Place price</label>
-                <input type="text" id="placePrice" th:value="*{placePrice}" th:field="*{placePrice}" required="required" class="inp ord"/></p>
+                <input type="text" id="placePrice" th:value="*{placePrice}" th:field="*{placePrice}" required="required" class="inp ord"/>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('placePrice')}"
+                     th:errors="*{placePrice}"></div>
 
                 <br>
                 <p><input type="submit" id="submitButton" value="Save"/> <input type="reset" id="resetButton"

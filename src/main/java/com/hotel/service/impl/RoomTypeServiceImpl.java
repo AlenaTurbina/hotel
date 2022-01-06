@@ -25,12 +25,12 @@ public class RoomTypeServiceImpl implements RoomTypeService {
     }
 
     @Override
-    public void save(RoomType roomType) {
+    public void update(RoomType roomType) {
         roomTypeRepository.saveAndFlush(roomType);
     }
 
     @Override
-    public RoomType saveByDTO(RoomTypeDTO roomTypeDTO) {
+    public RoomType save(RoomTypeDTO roomTypeDTO) {
         var roomType = RoomType.builder()
                 .name(roomTypeDTO.getName())
                 .quantityPlaces(roomTypeDTO.getQuantityPlaces())

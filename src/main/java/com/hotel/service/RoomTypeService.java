@@ -8,9 +8,9 @@ import java.util.List;
 public interface RoomTypeService {
     List<RoomType> getAll();
 
-    RoomType getById (Integer id);
+    RoomType getById(Integer id);
 
-    void save(RoomType roomType);
+    void update(RoomType roomType);
 
-    RoomType saveByDTO (RoomTypeDTO roomTypeDTO);
+    RoomType save(RoomTypeDTO roomTypeDTO);
 }

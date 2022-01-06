@@ -1,9 +1,5 @@
 package com.hotel.dto;
 
-import com.hotel.model.entity.Optional;
-import com.hotel.model.entity.OrderStatus;
-import com.hotel.model.entity.Room;
-import com.hotel.model.entity.User;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,8 +18,4 @@ public class OrderBookingDTO {
     private List<Integer> optionals;
     private Integer user;
 
-
-    private Integer id;
-    private Integer room;
-    private Integer orderStatus;
 }

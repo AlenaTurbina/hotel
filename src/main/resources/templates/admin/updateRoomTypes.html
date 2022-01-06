@@ -37,9 +37,13 @@
         <br>
         <label for="name">name</label>
         <input type="text" th:field="*{name}" id="name" placeholder="name" class="inp ord">
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"
+             th:errors="*{name}"></div>
         <br>
         <label for="quantityPlaces">placePrice</label>
         <input type="text" th:field="*{quantityPlaces}" id="quantityPlaces" placeholder="quantityPlaces" class="inp ord">
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('quantityPlaces')}"
+             th:errors="*{quantityPlaces}"></div>
         <br>
         <br>
         <p><input type="submit" id="submitButton" value="Save"/></p>

@@ -1,6 +1,5 @@
 package com.hotel.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

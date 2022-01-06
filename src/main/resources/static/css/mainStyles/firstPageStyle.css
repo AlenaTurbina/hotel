@@ -1,3 +1,4 @@
+/*--------------COMMON STYLE--------------*/
 html {
     font-family: arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -10,8 +11,9 @@ body {
     color:  #441d05;
     background-color: #F7F5F5;
 }
+/*-------------END COMMON STYLE-----------*/
 
-
+/* ----------------NAVBAR--------------- */
 img {
     max-width: 100%;
     height: auto;
@@ -22,15 +24,14 @@ section{
 }
 
 a {
-    color: #000;
+    color:  #441d05;
 }
 
 a:hover {
-    color: #555;
+    color:  #441d05;
 }
 
 /* header */
-
 .navbar .navbar-expand-lg .navbar-light {
     background-color: #f45216;
 }
@@ -40,6 +41,7 @@ a:hover {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
+    color: #ffffff;
 }
 
 .top-menu li a::after {
@@ -56,6 +58,12 @@ a:hover {
     transform: scale(1);
 }
 
+.top-menu .itemStyle .nav-item .linkStyle {
+    color:#ffffff;
+}
+/* -----------END NAVBAR------------*/
+
+/* -----------BIG CAROUSEL------------*/
 .mainPage-carousel{
     padding: 0;
 }
@@ -68,22 +76,9 @@ a:hover {
 .mainPage-carousel .carousel-item img {
    object-fit: cover;
 }
+/* -----------END BIG CAROUSEL------------*/
 
-/*footer*/
-.footer {
-    background-color: #F8EEE4;  /*#f4e3d3*/
-}
-
-.footer h4 {
-    color: #f45216;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: bold;
-    border-bottom: 1px solid #666;
-    padding-bottom: 3px;
-}
-
-/*rooms-carousel*/
+/*-------------SMALL CAROUSEL-------------*/
 .rooms-carousel{
     padding: 0;
     max-height: 750px;
@@ -101,9 +96,24 @@ a:hover {
     object-fit: cover;
     text-align: center;
 }
+/* -----------END SMALL CAROUSEL------------*/
 
+/*-----------------FOOTER-----------------*/
+.footer {
+    background-color: #F8EEE4;  /*#f4e3d3*/
+}
 
-/* text */
+.footer h4 {
+    color: #f45216;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #666;
+    padding-bottom: 3px;
+}
+/*-------------END FOOTER-----------------*/
+
+/*----------------TEXT-------------------*/
 .info {
     margin-left: 150px;
     margin-right: auto;
@@ -122,11 +132,6 @@ a:hover {
     color: #441d05;
     min-width: 420px;
     max-width: 700px;
-    /*
-    border-radius: 5px;
-    border: 2px solid #441d05;
-    max-height: 280px;
-     */
 }
 
 .carousel-notice1 .carousel-caption{
@@ -179,9 +184,10 @@ a:hover {
     font-weight: 300;
     text-align: center;
 }
+/*----------------END TEXT-------------------*/
 
+/*----------------CONTENT-------------------*/
 .imgContent {
     width: 480px; height: 270px;
-    /*border: 2px solid #e6ac72;*/
-    /*border-radius: 50%;*/
 }
+/*--------------END CONTENT-----------------*/

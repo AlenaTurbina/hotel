@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel registration</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link th:href="@{/css/mainStyles/accountStyle.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:insert="/fragments/accountFragments :: navbarRegistrationPages"></div>
+
+<div class="allPageCenter">
+    Registration
+</div>
+
+<div class="container containerWidthRegistration">
+
+    <!-- success message -->
+    <div th:if="${param.success}">
+        <div class="alert alert-info">You've successfully registered!</div>
+    </div>
+    <form th:action="@{/registration}" th:object="${userDTO}" method="post">
+        <div class="row justify-content-evenly commonStylesForm registrationForm">
+            <div class="col-4">
+                <div class="form-group colWidthRegistration">
+                    <label for="firstName"> First Name: </label>
+                    <input type="text" id="firstName" class="form-control inputRegistration" th:field="*{firstName}"
+                           required
+                           placeholder="Enter first name" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}"
+                         th:errors="*{firstName}"></div>
+                </div>
+
+                <div class="form-group colWidthRegistration">
+                    <label for="lastName"> Last Name </label>
+                    <input type="text" id="lastName" class="form-control inputRegistration" th:field="*{lastName}"
+                           required
+                           placeholder="Enter last name" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}"
+                         th:errors="*{lastName}"></div>
+                </div>
+
+                <div class="form-group colWidthRegistration">
+                    <label for="phoneNumber"> Phone number </label>
+                    <small>Format: +123456789</small>
+                    <input type="tel" id="phoneNumber" class="form-control inputRegistration" th:field="*{phoneNumber}"
+                           required
+                           placeholder="Enter phone number" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('phoneNumber')}"
+                         th:errors="*{phoneNumber}"></div>
+                </div>
+
+                <div class="form-group colWidthRegistration">
+                    <label for="document"> Document </label>
+                    <input type="text" id="document" class="form-control inputRegistration" th:field="*{document}"
+                           required
+                           placeholder="Enter document" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('document')}"
+                         th:errors="*{document}"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group colWidthRegistration">
+                    <label for="email"> Email </label>
+                    <input type="email" id="email" class="form-control inputRegistration" th:field="*{email}" required
+                           placeholder="Enter email" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+
+                <div class="form-group colWidthRegistration">
+                    <label for="password"> Password </label>
+                    <input type="password" id="password" class="form-control inputRegistration" th:field="*{password}"
+                           required
+                           placeholder="Enter password" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}"
+                         th:errors="*{password}"></div>
+                </div>
+
+                <div class="form-group colWidthRegistration">
+                    <label for="confirmPassword"> ConfirmPassword </label>
+                    <input type="password" id="confirmPassword" class="form-control inputRegistration"
+                           th:field="*{confirmPassword}"
+                           required placeholder="Enter password" autofocus="autofocus"/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('confirmPassword')}"
+                         th:errors="*{confirmPassword}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label> </label>
+                    <input type="submit" name="Register" value="Register"/>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <a href="/" th:href="@{/login}" class="btnLogin">Already registered? Log in here</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

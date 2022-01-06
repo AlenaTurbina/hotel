@@ -1,4 +1,4 @@
-
+/* ----------------NAVBAR--------------- */
 img {
     max-width: 100%;
     height: auto;
@@ -41,11 +41,12 @@ a {
 .top-menu li a:hover::after {
     transform: scale(1);
 }
+/* -----------END NAVBAR------------*/
 
-
+/* ---------------FORM---------------*/
 input[type=text], select {
     font-family: BORUTTA, sans-serif;
-    font-size: 14px; /*Размер шрифта*/
+    font-size: 14px;
     color: #441d05;
     width: 450px;
     padding: 12px 20px;
@@ -58,7 +59,7 @@ input[type=text], select {
 
 input[type=date] {
     font-family: BORUTTA, sans-serif;
-    font-size: 14px; /*Размер шрифта*/
+    font-size: 14px;
     color: #441d05;
     width: 200px;
     padding: 12px 20px;
@@ -71,7 +72,7 @@ input[type=date] {
 
 input[type=submit] {
     font-family: BORUTTA, sans-serif;
-    font-size: 18px; /*Размер шрифта*/
+    font-size: 18px;
     width: 250px;
     background-color: #e6ac72;
     color: white;
@@ -84,7 +85,7 @@ input[type=submit] {
 
 input[type=reset] {
     font-family: BORUTTA, sans-serif;
-    font-size: 18px; /*Размер шрифта*/
+    font-size: 18px;
     width: 250px;
     background-color: #e6ac72;
     color: white;
@@ -103,6 +104,12 @@ input[type=reset]:hover {
     background-color: #f45216;
 }
 
+label {
+    width: 150px;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .orderForm {
     font-family: BORUTTA, sans-serif;
     font-size: 16px;
@@ -112,8 +119,9 @@ input[type=reset]:hover {
     background-color: #faf1e9;
     padding: 20px;
 }
+/* -------------END FORM---------------*/
 
-
+/*------------TEXT WITH DIFFERENT MARGIN --------------*/
 .allPage {
     margin-top: 60px;
     font-family:  BORUTTA, sans-serif;
@@ -141,19 +149,13 @@ input[type=reset]:hover {
     color:  #441d05;
     background-color: white;
 }
+/*------------END TEXT WITH DIFFERENT MARGIN ------------*/
 
-
-label {
-    width: 150px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/*table*/
+/*----------------TABLE------------------*/
 .mainTable {
     font-family: BORUTTA, sans-serif;
     color:  #441d05;
-    border-collapse: collapse; /*объединение ячеек */
+    border-collapse: collapse;
     width: 1000px;
 }
 .mainTable td, th {
@@ -162,8 +164,6 @@ label {
 }
 
 .mainTable tr:hover {background-color: #faf1e9;}
-
-
 
 .mainTable tr:nth-child(even) {
     background-color: #faf1e9;
@@ -176,24 +176,22 @@ label {
 }
 
 .btnClient {
-    display: inline-block; /* Строчно-блочный элемент */
-    background: #e6ac72; /* Цвет фона */
-    color: #fff; /* Белый> цвет текста */
-    padding: 0.5rem 1.5rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-    font-size: 20px; /*Размер шрифта*/
+    display: inline-block;
+    background: #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 20px;
     font-family: BORUTTA, sans-serif;
     border: 1px solid #e6ac72;
     width: 250px;
 }
 
-
-
 .tableClient {
     font-family: BORUTTA, sans-serif;
     color:  #441d05;
-    border-collapse: collapse; /*объединение ячеек */
+    border-collapse: collapse;
     border: 2px solid #e6ac72;
     margin-left: 20px;
 }
@@ -210,7 +208,7 @@ th {
     padding-top: 8px;
     padding-bottom: 8px;
     text-align: center;
-    background-color: #e6ac72; /*темнее*/
+    background-color: #e6ac72;
     color: #fff;
     border: 2px solid #e6ac72;
 }
@@ -221,7 +219,9 @@ th {
     padding-right: 8px;
     border-style: hidden;
 }
+/*-----------------END TABLE----------------*/
 
+/*-----------------ACCORDION----------------*/
 .accordionClient {
     cursor: pointer;
     padding: 18px;
@@ -270,3 +270,4 @@ th {
 }
 
 .accordion-header >.accordion-button:focus{outline: none;}
+/*-----------------END ACCORDION----------------*/

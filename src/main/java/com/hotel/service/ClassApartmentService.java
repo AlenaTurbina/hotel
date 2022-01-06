@@ -10,7 +10,7 @@ public interface ClassApartmentService {
 
     ClassApartment getById(Integer id);
 
-    ClassApartment saveByDTO(ClassApartmentDTO classApartmentDTO);
+    ClassApartment save(ClassApartmentDTO classApartmentDTO);
 
-    void save(ClassApartment classApartment);
+    void update(ClassApartment classApartment);
 }

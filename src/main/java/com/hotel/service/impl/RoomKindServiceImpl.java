@@ -18,7 +18,4 @@ public class RoomKindServiceImpl implements RoomKindService {
         return roomKindRepository.findAll();
     }
 
-
-
-
 }

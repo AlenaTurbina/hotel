@@ -51,7 +51,6 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <version>9.0.54</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -77,18 +76,27 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>8.0.3</version>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <locations>
+                        <location>filesystem:src/main/resources/flyway/migrations</location>
+                    </locations>
+                    <url>jdbc:mysql://localhost:3306/hotel</url>
+                    <user>user_1</user>
+                    <password>123456789</password>
                 </configuration>
             </plugin>
+
+
         </plugins>
     </build>
 

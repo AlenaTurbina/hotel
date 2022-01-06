@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserStatusController {
     private UserStatusService userStatusService;
 
+    //List of UserStatuses /GET/
     @GetMapping(value = "/admin/userStatuses")
     public String userStatus(Model model) {
         var userStatuses = userStatusService.getAll();
         model.addAttribute("userStatuses", userStatuses);
-        return "userStatuses";
+        return "/admin/userStatuses";
     }
 }

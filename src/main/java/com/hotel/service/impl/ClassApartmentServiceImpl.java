@@ -25,7 +25,7 @@ public class ClassApartmentServiceImpl implements ClassApartmentService {
     }
 
     @Override
-    public ClassApartment saveByDTO(ClassApartmentDTO classApartmentDTO) {
+    public ClassApartment save(ClassApartmentDTO classApartmentDTO) {
         var classApartment = ClassApartment.builder()
                 .name(classApartmentDTO.getName())
                 .placePrice(classApartmentDTO.getPlacePrice())
@@ -35,7 +35,7 @@ public class ClassApartmentServiceImpl implements ClassApartmentService {
     }
 
     @Override
-    public void save(ClassApartment classApartment) {
+    public void update(ClassApartment classApartment) {
         classApartmentRepository.saveAndFlush(classApartment);
 
     }

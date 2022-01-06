@@ -37,6 +37,8 @@
                 <th>Last name</th>
                 <th>Email</th>
                 <th>Password</th>
+                <th>PhoneNumber</th>
+                <th>Document</th>
                 <th>Roles</th>
                 <th>Status</th>
                 <th></th>
@@ -48,6 +50,8 @@
                     <td th:utext="${user.lastName}"></td>
                     <td th:utext="${user.email}"></td>
                     <td th:utext="${user.password}"></td>
+                    <td th:utext="${user.phoneNumber}"></td>
+                    <td th:utext="${user.document}"></td>
                     <td>
                         <table class="embeddedTableAdmin">
                             <tr>
@@ -59,7 +63,8 @@
                     </td>
                     <td th:utext="${user.userStatus.name}"></td>
                     <td>
-                        <a style="color:#ffffff" th:href="@{users/update/{id}(id=${user.id})}" class="btnAdminTable">Edit</a>
+                        <a style="color:#ffffff" th:href="@{/admin/users/update/{id}(id=${user.id})}"
+                           class="btnAdminTable">Edit</a>
                     </td>
                 </tr>
                 </tbody>
