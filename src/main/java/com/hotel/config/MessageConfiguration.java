@@ -16,4 +16,5 @@ public class MessageConfiguration {
         messageSource.setFallbackToSystemLocale(true);
         return messageSource;
     }
+
 }

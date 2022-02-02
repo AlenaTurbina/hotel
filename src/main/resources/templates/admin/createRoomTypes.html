@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -38,7 +38,8 @@
                      th:errors="*{name}"></div>
                 <br>
                 <label for="quantityPlaces">Quantity places</label>
-                <input type="text" id="quantityPlaces" th:value="*{quantityPlaces}" th:field="*{quantityPlaces}" required="required" class="inp ord"/>
+                <input type="text" id="quantityPlaces" th:value="*{quantityPlaces}" th:field="*{quantityPlaces}"
+                       required="required" class="inp ord"/>
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('quantityPlaces')}"
                      th:errors="*{quantityPlaces}"></div>
                 <br>

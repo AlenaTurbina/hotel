@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>AdminPage</title>
+    <title>Admin page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
+
+    <!--JavaScript -->
+    <script type="text/javascript" th:src="@{/js/searchScrypt.js}"></script>
+
+    <!--jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- BootStrap. Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,18 +28,54 @@
 <!-- Admin panel -->
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
             <div class="allPageWithoutMargin">
-                <strong>
+                <h3>
                     <th th:text="' ADMINISTRATOR: ' + ${user.firstName} + ' ' + ${user.lastName}">
                     </th>
-                </strong>
+                    <p th:text="${#dates.format(#dates.createNow() , 'yyyy-MM-dd')}"></p>
+                </h3>
             </div>
+
+            <table class="tableAdmin">
+                <div class="allPageWithoutMargin">
+                    <h2>List of busy rooms for today</h2>
+                    <br>
+                    <input class="form-control searchField" id="myInput" type="text" placeholder="Search...">
+                </div>
+
+                <thead>
+                <th>Id</th>
+                <th>Date arrival</th>
+                <th>Date departure</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+                <th>Quantity persons</th>
+                <th>Room</th>
+
+                </thead>
+                <tbody id="tableBody">
+                <tr th:each="orderBooking : ${orderBookings}">
+                    <td th:utext="${orderBooking.id}"></td>
+                    <td th:utext="${orderBooking.dateArrival}"></td>
+                    <td th:utext="${orderBooking.dateDeparture}"></td>
+                    <td th:utext="${orderBooking.client.firstName}"></td>
+                    <td th:utext="${orderBooking.client.lastName}"></td>
+                    <td th:utext="${orderBooking.client.phoneNumber}"></td>
+                    <td th:utext="${orderBooking.quantityPersons}"></td>
+                    <td th:utext="${orderBooking.room.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+
         </div>
     </div>
 </div>
+<script>$(document).ready(search())</script>
 </body>
 </html>

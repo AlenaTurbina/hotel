@@ -6,6 +6,9 @@ import com.hotel.service.ClassApartmentService;
 import com.hotel.validator.ClassApartmentUpdateValidator;
 import com.hotel.validator.ClassApartmentValidator;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -45,7 +48,6 @@ public class ClassApartmentController {
         return "redirect:/admin/classApartments";
     }
 
-
     //Update classApartment /GET, POST/
     @GetMapping("/update/{id}")
     public String updateClassApartmentsForm(@PathVariable("id") Integer id, Model model) {
@@ -60,7 +62,6 @@ public class ClassApartmentController {
         if (bindingResult.hasErrors()){
             return "/admin/updateClassApartments";
         }
-
         classApartmentService.update(classApartment);
         return "redirect:/admin/classApartments";
     }

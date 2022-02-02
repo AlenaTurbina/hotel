@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @RequestMapping("/registration")
 @Controller
 @AllArgsConstructor
@@ -20,7 +19,6 @@ public class UserRegistrationController {
     private UserService userService;
     private UserValidator userValidator;
 
-    private static final Logger logger = LoggerFactory.getLogger(UserRegistrationController.class);
 
     @GetMapping
     public String showRegistrationForm(Model model) {
@@ -34,8 +32,7 @@ public class UserRegistrationController {
         if (bindingResult.hasErrors()) {
             return "/account/registration";
         }
-        userService.save(userDTO);
-        logger.info("New user registered: " + userDTO.getEmail());
+        userService.saveAndReturn(userDTO);
         return "redirect:/registration?success";
     }
 

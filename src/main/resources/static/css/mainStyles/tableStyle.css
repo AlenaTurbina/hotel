@@ -59,13 +59,16 @@ tr:nth-child(even) {
 
 /*------------TEXT WITH DIFFERENT MARGIN --------------*/
 .allPage {
-    margin-top: 60px;
     font-family:  BORUTTA, sans-serif;
     font-size: 16px;
     font-weight: 400;
     color:  #441d05;
     background-color: white;
     padding: 20px;
+}
+
+.marginTop {
+    margin-top: 60px;
 }
 
 .allPageCenter {
@@ -116,4 +119,39 @@ tr:nth-child(even) {
     border: 2px solid  #e6ac72;
     width: 350px;
 }
+
+.btn .btnRoom {
+    background:  #e6ac72;
+    color: #fff;
+    border: 2px solid  #e6ac72;
+    width: 250px;
+}
+
+.btnReference {
+    display: inline-block;
+    text-align: center;
+    background:  #e6ac72;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: arial, sans-serif;
+    width: 250px;
+}
+
+
+button[type=button] {
+    background:  #e6ac72;
+    color: #fff;
+    border: 2px solid  #e6ac72;
+    width: 250px;
+}
+button[type=button]:hover {
+    background-color:  #f45216;
+    border: 2px solid  #f45216;
+    color: #fff;
+}
+
+
 /*--------------END BUTTON--------------*/

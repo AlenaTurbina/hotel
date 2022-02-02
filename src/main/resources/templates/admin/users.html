@@ -6,6 +6,12 @@
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
 
+    <!--JavaScript -->
+    <script type="text/javascript" th:src="@{/js/searchScrypt.js}"></script>
+
+    <!--jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
     <!-- BootStrap. Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,30 +26,65 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
-
             <!-- List of users -->
             <table class="tableAdmin">
                 <div class="allPageWithoutMargin">
                     <h2>List of users </h2>
+                    <br>
+                    <input class="form-control searchField" id="myInput" type="text" placeholder="Search..">
                 </div>
 
                 <thead>
-                <th style="max-width: 20px;">Id</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
+                <th style="max-width: 20px;">
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+                        Id
+                    </a>
+                </th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
+                        First name
+                    </a>
+                </th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
+                        Last name
+                    </a></th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+                        Email</a>
+                </th>
                 <th>Password</th>
-                <th>PhoneNumber</th>
-                <th>Document</th>
-                <th>Roles</th>
-                <th>Status</th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=phoneNumber&sortDir=' + ${reverseSortDir}}">
+                        PhoneNumber</a>
+                </th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=document&sortDir=' + ${reverseSortDir}}">
+                        Document</a>
+                </th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=roles&sortDir=' + ${reverseSortDir}}">
+                        Roles</a>
+                </th>
+                <th>
+                    <a style="color: white;"
+                       th:href="@{'/admin/users/page/' + ${currentPage} + '?sortField=userStatus&sortDir=' + ${reverseSortDir}}">
+                        Status</a>
+                </th>
                 <th></th>
                 </thead>
-                <tbody>
+                <tbody id="tableBody">
                 <tr th:each="user : ${users}">
                     <td th:utext="${user.id}"></td>
                     <td th:utext="${user.firstName}"></td>
@@ -69,8 +110,37 @@
                 </tr>
                 </tbody>
             </table>
+            <br>
+            <!-- Paginator -->
+            <div class="allPageWithoutMargin">
+                <nav aria-label="Page navigation">
+                    <div th:if="${totalPages > 1}">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link newPageFix">Total rows: [[${totalItems}]]</a></li>
+                            <li class="page-item"><a class="page-link newPageFixActive">Current page:
+                                [[${currentPage}]]</a></li>
+                            <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                <a class="page-link newPage"
+                                   th:href="@{'/admin/users/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                                <span th:unless="${currentPage != i }"></span>
+                            </li>
+                            <li class="page-item"><a class="page-link newPage" th:if="${currentPage < totalPages }"
+                                                     th:href="@{'/admin/users/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                                <span th:unless="${currentPage < totalPages }"></span>
+                            </li>
+                            <li class="page-item"><a class="page-link newPage" th:if="${currentPage < totalPages }"
+                                                     th:href="@{'/admin/users/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                                <span th:unless="${currentPage < totalPages }"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
+
+<script>$(document).ready(search())</script>
+
 </body>
 </html>

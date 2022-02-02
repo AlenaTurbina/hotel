@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head lang="en">
-    <title>OrderUpdate</title>
+    <title>UpdateOrderBookings</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -83,7 +83,7 @@
                 <br>
                 <br>
                 <label for="optionals">Optionals</label>
-                <tr th:each="optional : ${optionals}">
+                <tr th:each="optional : ${orderBooking.optionals}">
                     <input onclick="return false" id="optionals" type="checkbox" th:field="*{optionals}"
                            th:value="${optional.id}"/>
                     <label th:text="${optional.name}" style="width: 90px"></label>

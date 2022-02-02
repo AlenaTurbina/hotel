@@ -3,68 +3,93 @@ package com.hotel.controller;
 import com.hotel.dto.OrderBookingDTO;
 import com.hotel.model.entity.OrderBooking;
 import com.hotel.service.*;
+import com.hotel.service.impl.EmailSenderServiceImpl;
 import com.hotel.validator.DateBookingValidator;
 import com.hotel.validator.OrderBookingValidator;
 import com.hotel.validator.OrderUpdateValidator;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.util.List;
+
+import static com.hotel.utilit.Constant.*;
+
 
 @Controller
+@Slf4j
 @AllArgsConstructor
 public class OrderBookingController {
     private OrderBookingService orderBookingService;
     private ClassApartmentService classApartmentService;
     private RoomTypeService roomTypeService;
+    private RoomService roomService;
     private OptionalService optionalService;
     private UserService userService;
-    private RoomKindService roomKindService;
     private OrderStatusService orderStatusService;
     private OrderBookingValidator orderBookingValidator;
     private DateBookingValidator dateBookingValidator;
     private OrderUpdateValidator orderUpdateValidator;
+    private EmailSenderServiceImpl emailSenderService;
 
-    private static final Logger logger = LoggerFactory.getLogger(OrderBookingController.class);
 
-    //List of orderBookings /GET/
+    //List of orderBookings with pagination /GET/
     @GetMapping(value = "/admin/orderBookings")
     public String orderBookings(Model model) {
-        var orderBookings = orderBookingService.getAll();
+       return findPaginated(1, model);
+    }
+
+    //Pagination for all orderBookings
+    @GetMapping("/admin/orderBookings/page/{pageNo}")
+    public String findPaginated(@PathVariable(value = "pageNo") Integer pageNo, Model model) {
+        Integer pageSize = MAX_ITEMS_ON_PAGE;
+
+        Page<OrderBooking> page = orderBookingService.findPaginated(pageNo, pageSize);
+        List<OrderBooking> orderBookings = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
         model.addAttribute("orderBookings", orderBookings);
         return "/admin/orderBookings";
     }
 
-    //Booking - list of authenticated client orders & orderBooking form with validation /GET, POST/
+    //Booking - orderBooking form with validation /GET, POST/
     @RequestMapping(value = "/client/orderForms", method = RequestMethod.GET)
     public String orderForm(Authentication authentication, Model model) {
         model.addAttribute("orderBookingDTO", new OrderBookingDTO());
-        showAuthenticatedUserOrdersAndOrderForm(authentication, model);
+        showAuthenticatedUserAndOrderForm(authentication, model);
         return "/client/orderForms";
     }
 
     @PostMapping(value = "/client/orderForms")
     public String createOrder(@ModelAttribute OrderBookingDTO orderBookingDTO, BindingResult bindingResult,
-                              Authentication authentication, Model model) {
+                              Authentication authentication, Model model)  {
         orderBookingValidator.validate(orderBookingDTO, bindingResult);
         if (bindingResult.hasErrors()) {
-            showAuthenticatedUserOrdersAndOrderForm(authentication, model);
-            return "/client/orderForms";
+            showAuthenticatedUserAndOrderForm(authentication, model);
+            return "client/orderForms";
         }
         var orderBooking = orderBookingService.save(orderBookingDTO);
+        log.info("New order booking");
         if (orderBooking != null) {
+            log.info("New invoice");
+            try {
+                emailSenderService.sendHtmlEmailInvoice(orderBooking.getClient().getEmail(), EMAIL_BOOKING_SUBJECT, orderBooking, "/mails/mailInvoice.html");
+                log.info("New email was send");
+            } catch (MessagingException e) {
+                log.error("Exception: ", e);
+            }
             model.addAttribute("orderBooking", orderBooking);
-            logger.info("New order booking");
-            logger.info("New invoice");
             return "/client/orderResultInvoice";
-
         } else {
-            logger.info("No suitable room for booking");
+            log.info("No suitable room for booking");
             model.addAttribute("orderBookingDTO", orderBookingDTO);
             var classApartments = classApartmentService.getAll();
             model.addAttribute("classApartments", classApartments);
@@ -90,7 +115,7 @@ public class OrderBookingController {
         var freeRooms = orderBookingService.getFreeRooms(orderBookingDTO);
         model.addAttribute("orderBookingDTO", orderBookingDTO);
         model.addAttribute("freeRooms", freeRooms);
-        var roomKinds = roomKindService.getAll();
+        var roomKinds = roomService.getListUniqueRoomKindsFromRooms();
         model.addAttribute("roomKinds", roomKinds);
         return "/home/freeRoomsClient";
     }
@@ -111,7 +136,7 @@ public class OrderBookingController {
         var freeRooms = orderBookingService.getFreeRooms(orderBookingDTO);
         model.addAttribute("orderBookingDTO", orderBookingDTO);
         model.addAttribute("freeRooms", freeRooms);
-        var roomKinds = roomKindService.getAll();
+        var roomKinds = roomService.getListUniqueRoomKindsFromRooms();
         model.addAttribute("roomKinds", roomKinds);
         return "/admin/freeRoomsAdmin";
     }
@@ -144,19 +169,39 @@ public class OrderBookingController {
         return "redirect:/admin/orderBookings";
     }
 
+    //List of orderBookings for client's history with pagination/GET/
+    @GetMapping(value = "/client/orderBookings")
+    public String orderBookingsUser(Model model, Authentication authentication) {
+        return findPaginatedForUser(1, model, authentication);
+    }
 
-    //Method for getting list of authenticated client orders & orderBooking form
-    private void showAuthenticatedUserOrdersAndOrderForm(Authentication authentication, Model model) {
+    //Pagination for client's history
+    @GetMapping("/client/orderBookings/page/{pageNo}")
+    public String findPaginatedForUser(@PathVariable(value = "pageNo") Integer pageNo, Model model, Authentication authentication) {
+        Integer pageSize = MAX_ITEMS_ON_PAGE;
+
+        List<OrderBooking> page = orderBookingService.findPaginatedAllByUser(pageNo, pageSize, authentication);
+        List<OrderBooking> allPages = orderBookingService.findAllByUser(authentication);
+        int totalPages = allPages.size()/pageSize + 1;
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", allPages.size());
+        model.addAttribute("orderBookings", page);
+        model.addAttribute("user", userService.findLoggedUser(authentication));
+        return "/client/orderUsers";
+    }
+
+    //Method for getting list of authenticated client & orderBooking form
+     private void showAuthenticatedUserAndOrderForm(Authentication authentication, Model model) {
         var user = userService.findLoggedUser(authentication);
         model.addAttribute("user", user);
-        var classApartments = classApartmentService.getAll();
+        var classApartments = roomService.getListUniqueClassApartmentsFromRooms();
         model.addAttribute("classApartments", classApartments);
-        var roomTypes = roomTypeService.getAll();
+        var roomTypes = roomService.getListUniqueRoomTypesFromRooms();
         model.addAttribute("roomTypes", roomTypes);
         var optionals = optionalService.getAll();
         model.addAttribute("optionals", optionals);
-        var orderBookings = orderBookingService.getAll();
-        model.addAttribute("orderBookings", orderBookings);
     }
 
 }

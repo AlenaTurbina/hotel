@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +21,7 @@ public class RoomType {
     @Column
     private String name;
     @Column(name = "quantity_places")
+    @Min(value = 1, message = "The field must be positive")
     private Integer quantityPlaces;
 
 }

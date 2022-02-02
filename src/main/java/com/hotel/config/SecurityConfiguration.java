@@ -21,19 +21,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserSecurityService userSecurity;
 
-    //password encoding
+    //Password encoding
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
     }
 
-    //for authentication
+    //AuthenticationProvider = DaoAuthenticationProvider
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userSecurity);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
 
-    //for authorization
+    //For authorization
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -62,15 +70,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
-    }
-
-    //AuthenticationProvider = DaoAuthenticationProvider
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userSecurity);
-        auth.setPasswordEncoder(passwordEncoder());
-        return auth;
     }
 
 }

@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.hotel.utilit.Constant.ID_DEFAULT_USER_STATUS_ACTIVE;
+
 
 @Data
 public class UserSecurity implements UserDetails {
@@ -54,13 +56,13 @@ public class UserSecurity implements UserDetails {
     //Transformation Entity User into UserDetails
     public static UserDetails fromUser(User user) {
         return new org.springframework.security.core.userdetails.User(
-                user.getEmail(),                            //username==email
-                user.getPassword(),                         //password
-                user.getUserStatus().getId().equals(1),     //enabled
-                user.getUserStatus().getId().equals(1),     //accountNonExpired
-                user.getUserStatus().getId().equals(1),     //credentialsNonExpired
-                user.getUserStatus().getId().equals(1),     //accountNonLocked
-                mapRolesToAuthorities(user.getRoles()));    //Collection authorities
+                user.getEmail(),                                                        //username==email
+                user.getPassword(),                                                     //password
+                user.getUserStatus().getId().equals(ID_DEFAULT_USER_STATUS_ACTIVE),     //enabled
+                user.getUserStatus().getId().equals(ID_DEFAULT_USER_STATUS_ACTIVE),     //accountNonExpired
+                user.getUserStatus().getId().equals(ID_DEFAULT_USER_STATUS_ACTIVE),     //credentialsNonExpired
+                user.getUserStatus().getId().equals(ID_DEFAULT_USER_STATUS_ACTIVE),     //accountNonLocked
+                mapRolesToAuthorities(user.getRoles()));                                //Collection authorities
     }
 
     //Method for getting Collection authorities

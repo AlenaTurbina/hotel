@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -29,6 +29,10 @@
             <table class="tableAdmin">
                 <div class="allPageWithoutMargin">
                     <h2>List of rooms</h2>
+                    <br>
+                    <a style="color:#ffffff" href="createRoom" th:href="@{/admin/rooms/create}"
+                       class="btnRef">Create room</a>
+                    <br>
                 </div>
                 <tr class="tableAdminFix">
                     <th>Id</th>
@@ -37,6 +41,7 @@
                     <th>Class apartment</th>
                     <th>Room price, $</th>
                     <th>Place price, $</th>
+                    <th></th>
                 </tr>
                 <tbody>
 
@@ -47,6 +52,9 @@
                     <td th:utext="${room.roomKind.classApartment.name}">id</td>
                     <td th:utext="${room.roomKind.roomPrice}">id</td>
                     <td th:utext="${room.roomKind.classApartment.placePrice}">id</td>
+                    <td><a style="color:#ffffff" th:href="@{/admin/rooms/update/{id}(id=${room.id})}"
+                           class="btnAdminTable">Edit</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

@@ -22,7 +22,7 @@ public class Room {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_kind")
     private RoomKind roomKind;
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<OrderBooking> orderBookings;
 
 }

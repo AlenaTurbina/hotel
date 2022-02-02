@@ -20,8 +20,12 @@
 <!-- Navbar -->
 <div th:insert="/fragments/clientFragments :: navbarClientPages"></div>
 
-<div class="allPage">
+<div class="allPage marginTop">
     <h2>PRICE-LIST</h2>
+    <h3>ROOMS</h3>
+    <a style="color:#ffffff" href="freeRooms" th:href="@{/home/freeRoomForms}" class="btnRef">Available rooms for
+        selected
+        dates</a>
 </div>
 
 <table class="tableMargin">
@@ -42,11 +46,24 @@
     </tr>
     </tbody>
 </table>
-<br>
-<div style="margin-left: 20px">
-    <a style="color:#ffffff" href="freeRooms" th:href="@{/home/freeRoomForms}" class="btnRef">Available rooms for selected
-        dates</a>
-</div>
 
+<div class="allPage">
+    <h3>OPTIONALS</h3>
+</div>
+<table class="tableMargin">
+    <tr>
+        <th>№</th>
+        <th>Name</th>
+        <th>Optional price (per day), $</th>
+    </tr>
+    <tbody>
+    <tr th:each="optional : ${optionals}">
+        <td th:utext="${optional.id}">id</td>
+        <td th:utext="${optional.name}">optional</td>
+        <td th:utext="${optional.optionalPrice}">OptionalPrice</td>
+    </tr>
+    </tbody>
+</table>
+<br>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>classApartments</title>
+    <title>ClassApartments</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
@@ -20,43 +20,46 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-<div class="col-md-3">
-<div th:insert="/fragments/adminFragments :: listAdminPages"></div>
-</div>
-<div class="col">
-<!-- Form -->
-<div th:switch="${classApartments}">
-    <h2 th:case="null">No classApartments found</h2>
-    <div th:case="*"></div>
-
-    <table class="tableAdmin">
-        <div class="allPageWithoutMargin">
-            <h2>List of classApartment </h2>
-            <br>
-            <a style="color:#ffffff" href="createClassApartments" th:href="@{/admin/classApartments/create}" class="btnRef">Create classApartment</a>
-            <br>
+        <div class="col-md-2">
+            <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
+        <div class="col">
+            <!-- Form -->
+            <div th:switch="${classApartments}">
+                <h2 th:case="null">No classApartments found</h2>
+                <div th:case="*"></div>
 
-        <thead>
-        <tr class="tableAdminFix">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Place price</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="classApartment : ${classApartments}">
-            <td th:utext="${classApartment.id}">id</td>
-            <td th:utext="${classApartment.name}">name</td>
-            <td th:utext="${classApartment.placePrice}">placePrice</td>
-            <td><a  style="color:#ffffff" th:href="@{classApartments/update/{id}(id=${classApartment.id})}" class="btnAdminTable">Edit</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
+                <table class="tableAdmin">
+                    <div class="allPageWithoutMargin">
+                        <h2>List of classApartment </h2>
+                        <br>
+                        <a style="color:#ffffff" href="createClassApartments" th:href="@{/admin/classApartments/create}"
+                           class="btnRef">Create classApartment</a>
+                        <br>
+                    </div>
+
+                    <thead>
+                    <tr class="tableAdminFix">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Place price</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="classApartment : ${classApartments}">
+                        <td th:utext="${classApartment.id}">id</td>
+                        <td th:utext="${classApartment.name}">name</td>
+                        <td th:utext="${classApartment.placePrice}">placePrice</td>
+                        <td><a style="color:#ffffff"
+                               th:href="@{/admin/classApartments/update/{id}(id=${classApartment.id})}"
+                               class="btnAdminTable">Edit</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

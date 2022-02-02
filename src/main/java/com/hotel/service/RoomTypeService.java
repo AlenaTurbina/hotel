@@ -10,6 +10,8 @@ public interface RoomTypeService {
 
     RoomType getById(Integer id);
 
+    RoomType getByName(String name);
+
     void update(RoomType roomType);
 
     RoomType save(RoomTypeDTO roomTypeDTO);

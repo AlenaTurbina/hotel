@@ -44,7 +44,7 @@ a {
 /* -----------END NAVBAR------------*/
 
 /* ---------------FORM---------------*/
-input[type=text], select {
+input[type=text], input[type=email], input[type=password], select {
     font-family: BORUTTA, sans-serif;
     font-size: 14px;
     color: #441d05;
@@ -119,6 +119,20 @@ label {
     background-color: #faf1e9;
     padding: 20px;
 }
+.containerWidthForm {
+    max-width: 1200px;
+}
+
+.containerWidthTable {
+    min-width: 1400px;
+}
+
+/* Input hidden */
+.hid {
+    border: none;
+    background-color: #faf1e9;
+    outline:none;
+}
 /* -------------END FORM---------------*/
 
 /*------------TEXT WITH DIFFERENT MARGIN --------------*/
@@ -131,6 +145,23 @@ label {
     background-color: white;
     padding: 20px;
 }
+
+.allPageWithoutMarginLeft {
+    margin-top: 60px;
+    font-family:  BORUTTA, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:  #441d05;
+    background-color: white;
+
+}
+
+.upper {
+    text-transform: uppercase;
+    text-align: center;
+    color:  #441d05;
+}
+
 
 .allPageCenter {
     font-family:  BORUTTA, sans-serif;
@@ -180,9 +211,10 @@ label {
     background: #e6ac72;
     color: #fff;
     padding: 0.5rem 1.5rem;
+    text-align: center;
     text-decoration: none;
     border-radius: 3px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: BORUTTA, sans-serif;
     border: 1px solid #e6ac72;
     width: 250px;
@@ -221,7 +253,72 @@ th {
 }
 /*-----------------END TABLE----------------*/
 
+/*-----------------TABLE TYPE 2 ----------------*/
+
+.tableClientWide {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    size: 16px;
+    border-collapse: collapse;
+    border: 2px solid #e6ac72;
+    margin-left: 20px;
+}
+
+.tableClientWide td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.tableClientWide tr:hover {
+    background-color: #faf1e9;
+}
+
+/* Header */
+.tableClientWide th {
+    padding: 8px;
+    size: 16px;
+    text-align: center;
+    background-color: #e6ac72; /*темнее*/
+    color: #fff;
+    border: 2px solid #e6ac72;
+}
+/* Header with fix width for small tables */
+.tableClientWideFix th {
+    padding: 8px;
+    size: 16px;
+    text-align: center;
+    width: 150px;
+    background-color: #e6ac72; /*темнее*/
+    color: #fff;
+    border: 2px solid #e6ac72;
+}
+
+/* Color for even rows */
+tr:nth-child(even) {
+    background-color: #faf1e9;
+}
+
+/* CSS for embedded tables */
+.embeddedTableClientWide {
+    font-family: BORUTTA, sans-serif;
+    color:  #441d05;
+    margin: auto;
+}
+
+.embeddedTableClientWide td, th {
+    text-align: left;
+    padding: 1px;
+    padding-right: 8px;
+    border-style: hidden;
+}
+/*-----------------END TABLE TYPE 2----------------*/
+
+
 /*-----------------ACCORDION----------------*/
+/*
 .accordionClient {
     cursor: pointer;
     padding: 18px;
@@ -271,3 +368,39 @@ th {
 
 .accordion-header >.accordion-button:focus{outline: none;}
 /*-----------------END ACCORDION----------------*/
+
+/*---------------PAGINATION----------------------*/
+.page-link.newPage{
+    color: #441d05;
+    background-color: white;
+    border: 1px solid #e6ac72;
+}
+
+.page-link.newPage:hover{
+    color: #f45216;
+    background-color: #faf1e9;
+    border: 1px solid #e6ac72;
+}
+
+.page-link.newPageFix{
+    color: #441d05;
+    background-color: white;
+    border: 1px solid #e6ac72;
+}
+.page-link.newPageFix:hover{
+    color: #441d05;
+    background-color: white;
+    border: 1px solid #e6ac72;
+}
+
+.page-link.newPageFixActive{
+    color: #441d05;
+    background-color: #faf1e9;
+    border: 1px solid #e6ac72;
+}
+.page-link.newPageFixActive:hover{
+    color: #441d05;
+    background-color: #faf1e9;
+    border: 1px solid #e6ac72;
+}
+/*---------------END PAGINATION----------------------*/

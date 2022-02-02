@@ -6,27 +6,35 @@
 <!-- Navbar for admin pages -->
 
 <nav th:fragment="listAdminPages">
+
     <div class="list-group listGroupStyle ">
         <a th:href="@{/admin}" class="list-group-item list-group-item-action active" aria-current="true">
             HOTEL ADMINISTRATOR
         </a>
         <a class="list-group-item list-group-item-action" href="home" th:href="@{/}">HOTEL HOME</a>
+        <a class="list-group-item list-group-item-action" href="freeRooms" th:href="@{/admin/freeRoomFormsAdmin}">Available
+            rooms for selected dates</a>
         <a class="list-group-item list-group-item-action" href="users" th:href="@{/admin/users}">User</a>
         <a class="list-group-item list-group-item-action" href="orderBookings" th:href="@{/admin/orderBookings}">Order
             booking</a>
         <a class="list-group-item list-group-item-action" href="classApartments" th:href="@{/admin/classApartments}">Class
             apartment</a>
         <a class="list-group-item list-group-item-action" href="roomTypes" th:href="@{/admin/roomTypes}">Room type</a>
+
+        <a class="list-group-item list-group-item-action" href="roomTypes" th:href="@{/admin/roomKinds}">Room kind</a>
+
         <a class="list-group-item list-group-item-action" href="rooms" th:href="@{/admin/rooms}">Rooms</a>
-        <a class="list-group-item list-group-item-action" href="freeRooms" th:href="@{/admin/freeRoomFormsAdmin}">Available
-            rooms for selected dates</a>
+
         <a class="list-group-item list-group-item-action" href="optionals" th:href="@{/admin/optionals}">Optionals</a>
-        <a class="list-group-item list-group-item-action" href="roles" th:href="@{/admin/roles}">Roles</a>
         <a class="list-group-item list-group-item-action" href="orderStatuses" th:href="@{/admin/orderStatuses}">Order
-            status</a>
+            statuses</a>
         <a class="list-group-item list-group-item-action" href="userStatuses" th:href="@{/admin/userStatuses}">User
-            status</a>
+            statuses</a>
+        <a class="list-group-item list-group-item-action" href="roles" th:href="@{/admin/roles}">Roles</a>
+
     </div>
+
 </nav>
+
 </body>
 </html>

@@ -10,6 +10,8 @@ public interface ClassApartmentService {
 
     ClassApartment getById(Integer id);
 
+    ClassApartment getByName(String name);
+
     ClassApartment save(ClassApartmentDTO classApartmentDTO);
 
     void update(ClassApartment classApartment);

@@ -17,5 +17,5 @@ public class OrderBookingDTO {
     private Integer classApartment;
     private List<Integer> optionals;
     private Integer user;
-
+    private Integer roomKind;
 }

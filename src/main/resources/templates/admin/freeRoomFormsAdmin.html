@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 
 <head>
-    <title>freeRoomForm</title>
+    <title>FreeRoomForm</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
 
     <!-- JavaScript -->
-    <script type="text/javascript"  th:src="@{/js/dateScrypt.js}"></script>
+    <script type="text/javascript" th:src="@{/js/dateScrypt.js}"></script>
 
     <!-- BootStrap. Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 <body>
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -35,7 +35,7 @@
 
             <div>
                 <form action="#" name="order" th:action="@{/admin/freeRoomFormsAdmin}" th:object="${orderBookingDTO}"
-                      method="post"  class="adminForm">
+                      method="post" class="adminForm">
                     <p>
                         <label for="dateArrival">Date arrival:</label>
                         <input id="dateArrival" type="date" th:value="*{dateArrival}" th:field="*{dateArrival}"

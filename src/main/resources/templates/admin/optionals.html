@@ -19,7 +19,7 @@
 <body>
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -29,7 +29,12 @@
                 <div th:case="*"></div>
                 <table class="tableAdmin">
                     <div class="allPageWithoutMargin">
-                        <h1>List of optionals</h1>
+                        <h2>List of optionals</h2>
+                        <br>
+                        <a style="color:#ffffff" href="createOptional" th:href="@{/admin/optionals/create}"
+                           class="btnRef">Create
+                            optional</a>
+                        <br>
                     </div>
                     <tr class="tableAdminFix">
                         <th>Id</th>
@@ -42,7 +47,8 @@
                         <td th:utext="${optional.id}">id</td>
                         <td th:utext="${optional.name}">id</td>
                         <td th:utext="${optional.optionalPrice}">id</td>
-                        <td><a  style="color:#ffffff" th:href="@{optionals/update/{id}(id=${optional.id})}" class="btnAdminTable">Edit</a></td>
+                        <td><a style="color:#ffffff" th:href="@{/admin/optionals/update/{id}(id=${optional.id})}"
+                               class="btnAdminTable">Edit</a></td>
                     </tr>
                     </tbody>
                 </table>

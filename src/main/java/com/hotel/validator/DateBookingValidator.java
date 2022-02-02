@@ -33,12 +33,12 @@ public class DateBookingValidator implements Validator {
             errors.rejectValue("dateArrival", "validation.booking.dateArrival.min");
         }
 
-        if(orderBookingDTO.getDateDeparture().isBefore(orderBookingDTO.getDateArrival())){
+        if(!orderBookingDTO.getDateDeparture().isAfter(orderBookingDTO.getDateArrival())){
             errors.rejectValue("dateDeparture", "validation.booking.dateDeparture.min");
         }
 
         if(orderBookingDTO.getDateArrival().isAfter(LocalDate.now().plusDays(MAX_DAYS_DATE_ARRIVAL))){
-            errors.rejectValue("dateDeparture", "validation.booking.dateArrival.max");
+            errors.rejectValue("dateArrival", "validation.booking.dateArrival.max");
         }
 
         if(orderBookingDTO.getDateDeparture().isAfter(orderBookingDTO.getDateArrival().plusDays(MAX_DAYS_BOOKING_PERIOD))){

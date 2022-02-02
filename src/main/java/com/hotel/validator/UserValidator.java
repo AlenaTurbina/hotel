@@ -41,7 +41,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("firstName", "validation.size.registration.userName");
         }
 
-        if (userDTO.getLastName().length() < 2 || userDTO.getFirstName().length() > 32) {
+        if (userDTO.getLastName().length() < 2 || userDTO.getLastName().length() > 32) {
             errors.rejectValue("lastName", "validation.size.registration.userName");
         }
 

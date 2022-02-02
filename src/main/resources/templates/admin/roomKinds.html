@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>RoomKinds</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS -->
+    <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
+
+    <!-- BootStrap. Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BootStrap. Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome fonts -->
+    <script src="https://kit.fontawesome.com/5ea6f45e85.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-md-2">
+            <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
+        </div>
+        <div class="col">
+
+            <!-- Form -->
+            <table class="tableAdmin">
+                <div class="allPageWithoutMargin">
+                    <h2>List of room kind</h2>
+                    <br>
+                    <a style="color:#ffffff" href="createRoom" th:href="@{/admin/roomKinds/create}"
+                       class="btnRef">Create room kind</a>
+                    <br>
+                </div>
+                <tr class="tableAdminFix">
+                    <th>Id</th>
+                    <th>Room type</th>
+                    <th>Class apartment</th>
+                    <th>Room price, $</th>
+                    <th></th>
+                </tr>
+                <tbody>
+
+                <tr th:each="roomKind : ${roomKinds}">
+                    <td th:utext="${roomKind.id}">id</td>
+                    <td th:utext="${roomKind.roomType.name}">id</td>
+                    <td th:utext="${roomKind.classApartment.name}">id</td>
+                    <td th:utext="${roomKind.roomPrice}">id</td>
+                    <td><a style="color:#ffffff" th:href="@{/admin/roomKinds/update/{id}(id=${roomKind.id})}"
+                           class="btnAdminTable">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

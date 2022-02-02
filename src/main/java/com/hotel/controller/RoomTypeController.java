@@ -6,12 +6,19 @@ import com.hotel.service.RoomTypeService;
 import com.hotel.validator.RoomTypeUpdateValidator;
 import com.hotel.validator.RoomTypeValidator;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequestMapping("/admin/roomTypes")
+
+
 @Controller
 @AllArgsConstructor
 public class RoomTypeController {
@@ -36,7 +43,7 @@ public class RoomTypeController {
     }
 
     @PostMapping("/create")
-    public String saveRoomTypes(@ModelAttribute RoomTypeDTO roomTypeDTO, BindingResult bindingResult) {
+    public String saveRoomTypes(@ModelAttribute @Valid RoomTypeDTO roomTypeDTO, BindingResult bindingResult) {
         roomTypeValidator.validate(roomTypeDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return "/admin/createRoomTypes";
@@ -54,7 +61,7 @@ public class RoomTypeController {
     }
 
     @PostMapping("/update")
-    public String updateRoomTypes(RoomType roomType, BindingResult bindingResult) {
+    public String updateRoomTypes(@ModelAttribute @Valid RoomType roomType, BindingResult bindingResult) {
         roomTypeUpdateValidator.validate(roomType, bindingResult);
         if (bindingResult.hasErrors()) {
             return "/admin/updateRoomTypes";

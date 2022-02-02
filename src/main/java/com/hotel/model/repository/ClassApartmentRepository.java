@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClassApartmentRepository extends JpaRepository<ClassApartment, Integer> {
+    ClassApartment findClassApartmentByName(String name);
 }

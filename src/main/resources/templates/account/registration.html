@@ -10,6 +10,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- CSS -->
     <link th:href="@{/css/mainStyles/accountStyle.css}" rel="stylesheet">
 
 </head>
@@ -60,7 +61,7 @@
                 </div>
 
                 <div class="form-group colWidthRegistration">
-                    <label for="document"> Document </label>
+                    <label for="document"> Document ID </label>
                     <input type="text" id="document" class="form-control inputRegistration" th:field="*{document}"
                            required
                            placeholder="Enter document" autofocus="autofocus"/>

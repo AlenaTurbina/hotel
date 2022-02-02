@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<p th:text="'Dear '  + ${firstName} + ' ' +  ${lastName} + '!'"/>
+<p>You've successfully booked room in Hotel. We are sending you an invoice for payment.</p>
+
+<!--Invoice -->
+<div class="allPage">
+    <h2>INVOICE</h2>
+    <table class="mainTable">
+        <tr>
+            <td>Date of order</td>
+            <td th:text="${date}"></td>
+        </tr>
+        <tr>
+            <td>Client's first name:</td>
+            <td th:text="${firstName}"></td>
+        </tr>
+        <tr>
+            <td>Client's last name:</td>
+            <td th:text="${lastName}"></td>
+        </tr>
+        <tr>
+            <td>Date arrival:</td>
+            <td th:text="${dateArrival}"></td>
+        </tr>
+        <tr>
+            <td>Date departure:</td>
+            <td th:text="${dateDeparture}"></td>
+        </tr>
+        <tr>
+            <td>Room type:</td>
+            <td th:text="#{'description_'+${roomType}}"></td>
+        </tr>
+        <tr>
+            <td>Class of apartments:</td>
+            <td th:text="${classApartment}"></td>
+        </tr>
+
+        <tr class="summa">
+            <td>The amount to be paid, $:</td>
+            <td th:text="${sumTotal}"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <h4>Attention:</h4>
+    <p>You have only 3 hours to pay the invoice. After this time, the order will be canceled</p>
+
+    <h4>Accepted credit cards:</h4>
+    <ul class="a">
+        <li>American Express, Visa, Euro/Mastercard, Diners Club, JCB
+        </li>
+        <li>Please note that the credit card which will be used for making a reservation must be available at
+            check-in.
+        </li>
+        <li>The hotel reserves the right to pre-authorise credit cards prior to arrival.</li>
+    </ul>
+
+</div>
+</body>
+</html>

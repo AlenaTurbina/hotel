@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>classApartmentsForm</title>
+    <title>CreateClassApartments</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -37,9 +37,10 @@
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"
                      th:errors="*{name}"></div>
 
-
+                <br>
                 <label for="placePrice">Place price</label>
-                <input type="text" id="placePrice" th:value="*{placePrice}" th:field="*{placePrice}" required="required" class="inp ord"/>
+                <input type="text" id="placePrice" th:value="*{placePrice}" th:field="*{placePrice}" required="required"
+                       class="inp ord"/>
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('placePrice')}"
                      th:errors="*{placePrice}"></div>
 

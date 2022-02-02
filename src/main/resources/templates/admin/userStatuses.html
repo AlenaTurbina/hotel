@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>userStatuses</title>
+    <title>UserStatuses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- CSS -->
     <link th:href="@{/css/adminStyles/adminStyle.css}" rel="stylesheet">
@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row align-items-start">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div th:insert="/fragments/adminFragments :: listAdminPages"></div>
         </div>
         <div class="col">
@@ -29,22 +29,18 @@
                 <div class="allPageWithoutMargin">
                     <h2>List of userStatuses </h2>
                     <br>
-                    <a style="color:#ffffff" href="createUserStatus" th:href="@{/admin/userStatus/create}" class="btnRef">Create userStatus</a>
-                    <br>
                 </div>
 
                 <thead>
                 <tr class="tableAdminFix">
                     <th>Id</th>
                     <th>Name</th>
-                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="userStatus : ${userStatuses}">
                     <td th:utext="${userStatus.id}">id</td>
                     <td th:utext="${userStatus.name}">name</td>
-                    <td><a  style="color:#ffffff" th:href="@{userStatus/update/{id}(id=${userStatus.id})}" class="btnAdminTable">Edit</a></td>
                 </tr>
                 </tbody>
             </table>
